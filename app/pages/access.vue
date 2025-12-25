@@ -1814,7 +1814,7 @@ onUnmounted(() => {
     margin-bottom: 10px;
   }
   
-  tr:last-child td[data-v-1d00d2c6] {
+  tr:last-child td{
       border-bottom: 1px solid #ccc; 
   }
   
