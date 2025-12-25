@@ -539,6 +539,25 @@
               </div>
             </div>
           </section>
+          
+          <section id="station" class="content-section">
+  <h2>最寄駅からのアクセス</h2>
+
+  <div class="station-info">
+    <div class="route-description">
+      <p>公共交通機関をご利用の場合、最寄り駅からのアクセス方法をご案内します。</p>
+    </div>
+
+    <div class="station-routes">
+    </div>
+
+    <div class="notice-box">
+      <h4>注意事項</h4>
+      <p>※公演当日は混雑が予想されますので、時間に余裕を持ってお越しください。</p>
+      <p>※詳細な徒歩ルートは、上記のアクセスマップをご確認ください。</p>
+    </div>
+  </div>
+</section>
 
 <section id="wheelchair" class="content-section">
   <h2>車椅子でのご来場について</h2>
@@ -926,6 +945,7 @@ onUnmounted(() => {
 
 .hamburger-button.active span:nth-child(2) {
   opacity: 0;
+  transform: scale(0);
 }
 
 .hamburger-button.active span:nth-child(3) {
@@ -1166,6 +1186,7 @@ onUnmounted(() => {
   line-height: 1;
   margin-bottom: 60px;
   text-align: center;
+  white-space: nowrap;
 }
 
 .content-section .section-intro {
@@ -1336,20 +1357,18 @@ onUnmounted(() => {
 }
 
 .area-content {
-  display: grid;
-  grid-template-rows: 0fr;
-  transition: grid-template-rows 0.4s ease-in-out;
+  max-height: 0;
   overflow: hidden;
+  transition: max-height 0.4s ease-in-out;
 }
 
 .area-content > table {
-  min-height: 0;
   padding: 20px 0;
   margin-top: 10px;
 }
 
 .area-content.open {
-  grid-template-rows: 1fr;
+  max-height: 500px;
 }
 
 .notice-box h4 {
@@ -1792,7 +1811,7 @@ onUnmounted(() => {
 
   .info-table tr {
     display: block;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
   }
   
   tr:last-child td[data-v-1d00d2c6] {
@@ -1800,7 +1819,7 @@ onUnmounted(() => {
   }
   
     .info-table tr:last-child {
-    margin-bottom: 0;
+    margin-bottom: 20px;
   }
   
   .toggle-icon {
