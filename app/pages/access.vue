@@ -1,5 +1,20 @@
 <template>
   <div class="access-page">
+    <!-- ハンバーガーメニューボタン (860px以下で表示) -->
+    <button 
+      class="hamburger-button" 
+      :class="{ active: isMenuOpen }"
+      @click="toggleMenu"
+      aria-label="メニュー"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <!-- モバイルメニューオーバーレイ -->
+    <div class="mobile-menu-overlay" :class="{ active: isMenuOpen }" @click="closeMenu"></div>
+
     <!-- ヒーローセクション(中央配置) -->
     <div class="hero-section">
       <!-- メインビジュアル -->
@@ -9,8 +24,16 @@
 
       <!-- イベント情報 -->
       <section class="event-info">
-        <h1 class="event-date">2026.6.27<span class="day">SAT</span> & 6.28<span class="day">SUN</span></h1>
-        <p class="event-time">open.14:30 / start.17:00 / fin.19:15<span class="small">(予定)</span></p>
+        <h1 class="event-date">
+          2026.6.27
+          <span class="day">SAT</span>
+          & 6.28
+          <span class="day">SUN</span>
+        </h1>
+        <p class="event-time">
+          open.14:30 / start.17:00 / fin.19:15
+          <span class="small">(予定)</span>
+        </p>
         <h2 class="venue-name">熊本えがお健康スタジアム</h2>
         <h3 class="page-title">アクセス方法のご案内</h3>
       </section>
@@ -18,49 +41,51 @@
       <!-- 説明文 -->
       <section class="description">
         <p>
-          back number "Grateful Yesterdays Tour 2026" 開催時の熊本えがお健康スタジアムへのアクセス方法をご案内いたします。<br>各所のシャトルバス・各地からのツアーバス・電車・駐車場・徒歩でのルートなど、来場に便利な手段をご確認ください。
+         <span class="sp">back number "Grateful Yesterdays Tour 2026" <span class="tab step">開催時の熊本えがお健康スタジアムへのアクセス方法をご案内いたします。</span></span>
+          <br />
+          各所のシャトルバス・各地からのツアーバス・電車・駐車場・徒歩でのルートなど、<span class="tab step">来場に便利な手段をご確認ください。</span>
         </p>
       </section>
     </div>
 
-<div class="content-wrapper">
-  <!-- ナビゲーション付きの注意事項ラッパー -->
-  <div class="notes-with-nav" id="notes-nav-wrapper">
-    <nav class="fixed-navigation">
-        <div class="nav-logo" @click="scrollToTop" style="cursor: pointer;">
-          <h1>ACCESS</h1>
-        </div>
-        <ul class="nav-menu">
-          <li :class="{ active: activeSection === 'notes' }">
-            <a href="#notes" @click.prevent="scrollTo('notes')">注意事項</a>
-          </li>
-          <li :class="{ active: activeSection === 'map' }">
-            <a href="#map" @click.prevent="scrollTo('map')">アクセスマップ</a>
-          </li>
-          <li :class="{ active: activeSection === 'shuttle' }">
-            <a href="#shuttle" @click.prevent="scrollTo('shuttle')">シャトルバス</a>
-          </li>
-          <li :class="{ active: activeSection === 'park-ride' }">
-            <a href="#park-ride" @click.prevent="scrollTo('park-ride')">パーク&バスライド</a>
-          </li>
-          <li :class="{ active: activeSection === 'tour-bus' }">
-            <a href="#tour-bus" @click.prevent="scrollTo('tour-bus')">ツアーバス</a>
-          </li>
-          <li :class="{ active: activeSection === 'parking' }">
-            <a href="#parking" @click.prevent="scrollTo('parking')">駐車場案内</a>
-          </li>
-          <li :class="{ active: activeSection === 'station' }">
-            <a href="#station" @click.prevent="scrollTo('station')">最寄駅アクセス</a>
-          </li>
-          <li :class="{ active: activeSection === 'wheelchair' }">
-            <a href="#wheelchair" @click.prevent="scrollTo('wheelchair')">車いすでのご来場</a>
-          </li>
-          <li :class="{ active: activeSection === 'faq' }">
-            <a href="#faq" @click.prevent="scrollTo('faq')">よくある質問</a>
-          </li>
-        </ul>
-      </nav>
-       </div>
+    <div class="content-wrapper">
+      <!-- ナビゲーション付きの注意事項ラッパー -->
+      <div class="notes-with-nav" id="notes-nav-wrapper">
+        <nav class="fixed-navigation" :class="{ 'mobile-open': isMenuOpen }">
+          <div class="nav-logo" @click="scrollToTop" style="cursor: pointer">
+            <h1>ACCESS</h1>
+          </div>
+          <ul class="nav-menu">
+            <li :class="{ active: activeSection === 'notes' }">
+              <a href="#notes" @click.prevent="handleNavClick('notes')">注意事項</a>
+            </li>
+            <li :class="{ active: activeSection === 'map' }">
+              <a href="#map" @click.prevent="handleNavClick('map')">アクセスマップ</a>
+            </li>
+            <li :class="{ active: activeSection === 'shuttle' }">
+              <a href="#shuttle" @click.prevent="handleNavClick('shuttle')">シャトルバス</a>
+            </li>
+            <li :class="{ active: activeSection === 'park-ride' }">
+              <a href="#park-ride" @click.prevent="handleNavClick('park-ride')">パーク&バスライド</a>
+            </li>
+            <li :class="{ active: activeSection === 'tour-bus' }">
+              <a href="#tour-bus" @click.prevent="handleNavClick('tour-bus')">ツアーバス</a>
+            </li>
+            <li :class="{ active: activeSection === 'parking' }">
+              <a href="#parking" @click.prevent="handleNavClick('parking')">乗降所案内</a>
+            </li>
+            <li :class="{ active: activeSection === 'station' }">
+              <a href="#station" @click.prevent="handleNavClick('station')">最寄駅アクセス</a>
+            </li>
+            <li :class="{ active: activeSection === 'wheelchair' }">
+              <a href="#wheelchair" @click.prevent="handleNavClick('wheelchair')">車いすでのご来場</a>
+            </li>
+            <li :class="{ active: activeSection === 'faq' }">
+              <a href="#faq" @click.prevent="handleNavClick('faq')">よくある質問</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
 
       <!-- メインコンテンツ -->
       <div class="main-content">
@@ -69,22 +94,34 @@
           <section id="notes" class="content-section">
             <h2>注意事項</h2>
             <p class="section-intro">
-              <strong>安全でスムーズなご来場のため、<span class="text-red">必ず事前にご確認</span>をお願いいたします。</strong>
+              <strong>
+                安全でスムーズなご来場のため、<span class="sp step">
+                <span class="text-red">必ず事前にご確認</span>
+                をお願いいたします。</span>
+              </strong>
             </p>
-            
+
             <ul class="notes-list">
               <li>公演当日は、会場へ向かう周辺道路の交通規制を行います。会場内及び最寄駅、周辺道路は大変混雑致します。お時間に余裕を持って安全にご来場ください。またコンサート終演後は安全確保の為、規制退場となりますので、予めご了承ください。</li>
-              
+
               <li>会場敷地内及び周辺施設での無断駐車、周辺道路での路上駐車は一切禁止です。</li>
-              
+
               <li>えがお健康スタジアム(熊本県民総合運動公園)周辺は、交通規制を行います。通行証をお持ちでない車両は、コンサート準備日~本公演日まで、えがお健康スタジアム(熊本県民総合運動公園)への進入はできません。</li>
-              
+
               <li>シャトルバス・アクセスバス・パーク&バスライドは前売り販売のみとなります。当日券の販売はございませんので、ご利用の際は必ず事前にチケットをご購入ください。なお、販売上限枚数になり次第、販売終了とさせて頂きますので予めご了承ください。</li>
-              
-              <li>会場周辺には送迎車乗降所はございません。会場周辺道路での送迎は、バス運行に支障をきたしますのでご遠慮ください。</li>
-              
-              <li>交通状況や天候により、アクセス方法が変更となる場合がございます。最新情報は<a href="https://backnumber.info/feature/stadiumtour2026" target="_blank" rel="noopener noreferrer" class="external-link">ツアー公式サイト</a>および当サイトをご確認ください。</li>
-              
+
+              <li>
+                会場周辺には
+                <strong>送迎車乗降所</strong>
+                はございません。会場周辺道路での送迎は、バス運行に支障をきたしますのでご遠慮ください。
+              </li>
+
+              <li>
+                交通状況や天候により、アクセス方法が変更となる場合がございます。最新情報は
+                <a href="https://backnumber.info/feature/stadiumtour2026" target="_blank" rel="noopener noreferrer" class="external-link">ツアー公式サイト</a>
+                および当サイトをご確認ください。
+              </li>
+
               <li>近隣にお住まいの方、周辺施設や周辺道路のご迷惑にならないように、皆さまのご協力をお願い致します。</li>
             </ul>
           </section>
@@ -93,22 +130,22 @@
             <h2>アクセスマップ</h2>
             <div class="map-info">
               <p class="venue-address">
-                <strong>熊本えがお健康スタジアム</strong><br>
-                〒861-8012 熊本県熊本市東区平山町2776
+                <strong>熊本えがお健康スタジアム</strong>
+                <span>〒861-8012 熊本県熊本市東区平山町2776</span>
               </p>
             </div>
             <div class="map-container">
-              <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3352.3166285180846!2d130.79756217705258!3d32.83686728092274!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3540efdfaae84219%3A0xf218b5c8e7f176f6!2z44GI44GM44GK5YGl5bq344K544K_44K444Ki44Og!5e0!3m2!1sja!2sjp!4v1766535741408!5m2!1sja!2sjp"
-                width="100%" 
-                height="450" 
-                style="border:0;" 
-                allowfullscreen="" 
-                loading="lazy" 
-                referrerpolicy="no-referrer-when-downgrade">
-              </iframe>
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d3606.28135161495!2d130.80049813873242!3d32.8373622716585!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sja!2sjp!4v1766627064954!5m2!1sja!2sjp"
+                width="100%"
+                height="500px"
+                style="border: 0"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+              ></iframe>
             </div>
-            
+
             <div class="access-diagram">
               <img src="/images/main-all-map.png" alt="アクセス案内図" />
             </div>
@@ -116,7 +153,7 @@
 
           <section id="shuttle" class="content-section">
             <h2>シャトルバスのご案内</h2>
-            
+
             <div class="shuttle-route">
               <div class="route-description">
                 <p>公演当日は、下記のバス停から熊本えがお健康スタジアムまでの直行シャトルバスを運行いたします。</p>
@@ -132,22 +169,22 @@
               <div class="route-details">
                 <table class="info-table">
                   <tbody>
-                  <tr>
-                    <th>発車バス停</th>
-                    <td>①熊本桜町バスターミナル　②熊本県庁　③芦陽才並木公園さんさん</td>
-                  </tr>
-                  <tr>
-                    <th>所要時間</th>
-                    <td>①約50分　②約35分　③約20分</td>
-                  </tr>
-                  <tr>
-                    <th>料金</th>
-                    <td>決まり次第ご案内いたします</td>
-                  </tr>
-                  <tr>
-                    <th>運行時間</th>
-                    <td>決まり次第ご案内いたします</td>
-                  </tr>
+                    <tr>
+                      <th>発車バス停</th>
+                      <td>①熊本桜町バスターミナル　<span class="sp tab block">②熊本県庁　</span><span class="sp tab">③芦陽才並木公園さんさん</span></td>
+                    </tr>
+                    <tr>
+                      <th>所要時間</th>
+                      <td>①約50分　②約35分　③約20分</td>
+                    </tr>
+                    <tr>
+                      <th>料金</th>
+                      <td>決まり次第ご案内いたします</td>
+                    </tr>
+                    <tr>
+                      <th>運行時間</th>
+                      <td>決まり次第ご案内いたします</td>
+                    </tr>
                   </tbody>
                 </table>
               </div>
@@ -161,7 +198,7 @@
 
           <section id="park-ride" class="content-section">
             <h2>パーク&バスライドのご案内</h2>
-            
+
             <div class="shuttle-route">
               <div class="route-description">
                 <p>公演当日お車でお越しの場合は、下記の通り、熊本えがお健康スタジアムまでのパーク&バスライドを運行いたします。</p>
@@ -177,22 +214,22 @@
               <div class="route-details">
                 <table class="info-table">
                   <tbody>
-                  <tr>
-                    <th>発車駐車場</th>
-                    <td>①戸島ふれあい広場　②グランメッセ熊本　③東京エレクトロン九州</td>
-                  </tr>
-                  <tr>
-                    <th>所要時間</th>
-                    <td>①約15分　②約20分　③約25分</td>
-                  </tr>
-                  <tr>
-                    <th>料金</th>
-                    <td>決まり次第ご案内いたします</td>
-                  </tr>
-                  <tr>
-                    <th>運行時間</th>
-                    <td>決まり次第ご案内いたします</td>
-                  </tr>
+                    <tr>
+                      <th>発車駐車場</th>
+                      <td>①戸島ふれあい広場　<span class="sp tab block">②グランメッセ熊本　</span><span class="sp tab">③東京エレクトロン九州</span></td>
+                    </tr>
+                    <tr>
+                      <th>所要時間</th>
+                      <td>①約15分　②約20分　③約25分</td>
+                    </tr>
+                    <tr>
+                      <th>料金</th>
+                      <td>決まり次第ご案内いたします</td>
+                    </tr>
+                    <tr>
+                      <th>運行時間</th>
+                      <td>決まり次第ご案内いたします</td>
+                    </tr>
                   </tbody>
                 </table>
               </div>
@@ -207,317 +244,365 @@
 
           <section id="tour-bus" class="content-section">
             <h2>ツアーバスのご案内</h2>
-            
+
             <div class="tour-bus-route">
               <div class="route-description">
                 <p>各日、次の9方面より日帰りでのツアーバスを運行いたします。</p>
                 <p>ツアーバスの発売詳細につきましては、決まり次第、当サイトにてご案内させていただきます。</p>
               </div>
 
-              <div class="route-diagram">
-                <img src="/images/bus-tour.jpg" alt="ツアーバス路線図" />
-              </div>
-
               <div class="notice-box">
                 <h4>注意事項</h4>
-                <p>※本ツアーバスは往復便での受付のみとなっており、片道(往路/復路)の販売はございません。</p>
+                <p>※本ツアーバスは往復便での受付となっており、往路のみの受付は熊本空港発ツアーバスのみになります。</p>
               </div>
 
               <!-- 各エリアの詳細 -->
               <div class="tour-bus-details">
                 <div class="area-detail">
-                  <h3 class="area-title">博多駅</h3>
-                  <table class="info-table">
-                    <tbody>
-                    <tr>
-                      <th>発着駅</th>
-                      <td>博多駅</td>
-                    </tr>
-                    <tr>
-                      <th>所要時間</th>
-                      <td>決まり次第ご案内いたします</td>
-                    </tr>
-                    <tr>
-                      <th>料金(往復)</th>
-                      <td>決まり次第ご案内いたします</td>
-                    </tr>
-                    <tr>
-                      <th>運行時間</th>
-                      <td>決まり次第ご案内いたします</td>
-                    </tr>
-                    </tbody>
-                  </table>
+                  <div class="area-header" @click="toggleArea('hakata')">
+                    <h3 class="area-title">博多駅</h3>
+                    <span class="toggle-icon" :class="{ active: openAreas.hakata }">▼</span>
+                  </div>
+                  <div class="area-content" :class="{ open: openAreas.hakata }">
+                    <table class="info-table">
+                      <tbody>
+                        <tr>
+                          <th>発着駅</th>
+                          <td>博多駅</td>
+                        </tr>
+                        <tr>
+                          <th>所要時間</th>
+                          <td>決まり次第ご案内いたします</td>
+                        </tr>
+                        <tr>
+                          <th>料金(往復)</th>
+                          <td>決まり次第ご案内いたします</td>
+                        </tr>
+                        <tr>
+                          <th>運行時間</th>
+                          <td>決まり次第ご案内いたします</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
                 </div>
 
                 <div class="area-detail">
-                  <h3 class="area-title">小倉駅</h3>
-                  <table class="info-table">
-                    <tbody>
-                    <tr>
-                      <th>発着駅</th>
-                      <td>小倉駅</td>
-                    </tr>
-                    <tr>
-                      <th>所要時間</th>
-                      <td>決まり次第ご案内いたします</td>
-                    </tr>
-                    <tr>
-                      <th>料金(往復)</th>
-                      <td>決まり次第ご案内いたします</td>
-                    </tr>
-                    <tr>
-                      <th>運行時間</th>
-                      <td>決まり次第ご案内いたします</td>
-                    </tr>
-                    </tbody>
-                  </table>
+                  <div class="area-header" @click="toggleArea('kokura')">
+                    <h3 class="area-title">小倉駅</h3>
+                    <span class="toggle-icon" :class="{ active: openAreas.kokura }">▼</span>
+                  </div>
+                  <div class="area-content" :class="{ open: openAreas.kokura }">
+                    <table class="info-table">
+                      <tbody>
+                        <tr>
+                          <th>発着駅</th>
+                          <td>小倉駅</td>
+                        </tr>
+                        <tr>
+                          <th>所要時間</th>
+                          <td>決まり次第ご案内いたします</td>
+                        </tr>
+                        <tr>
+                          <th>料金(往復)</th>
+                          <td>決まり次第ご案内いたします</td>
+                        </tr>
+                        <tr>
+                          <th>運行時間</th>
+                          <td>決まり次第ご案内いたします</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
                 </div>
 
                 <div class="area-detail">
-                  <h3 class="area-title">熊本駅</h3>
-                  <table class="info-table">
-                    <tbody>
-                    <tr>
-                      <th>発着駅</th>
-                      <td>熊本駅</td>
-                    </tr>
-                    <tr>
-                      <th>所要時間</th>
-                      <td>決まり次第ご案内いたします</td>
-                    </tr>
-                    <tr>
-                      <th>料金(往復)</th>
-                      <td>決まり次第ご案内いたします</td>
-                    </tr>
-                    <tr>
-                      <th>運行時間</th>
-                      <td>決まり次第ご案内いたします</td>
-                    </tr>
-                    </tbody>
-                  </table>
+                  <div class="area-header" @click="toggleArea('kumamoto')">
+                    <h3 class="area-title">熊本駅</h3>
+                    <span class="toggle-icon" :class="{ active: openAreas.kumamoto }">▼</span>
+                  </div>
+                  <div class="area-content" :class="{ open: openAreas.kumamoto }">
+                    <table class="info-table">
+                      <tbody>
+                        <tr>
+                          <th>発着駅</th>
+                          <td>熊本駅</td>
+                        </tr>
+                        <tr>
+                          <th>所要時間</th>
+                          <td>決まり次第ご案内いたします</td>
+                        </tr>
+                        <tr>
+                          <th>料金(往復)</th>
+                          <td>決まり次第ご案内いたします</td>
+                        </tr>
+                        <tr>
+                          <th>運行時間</th>
+                          <td>決まり次第ご案内いたします</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
                 </div>
 
                 <div class="area-detail">
-                  <h3 class="area-title">佐賀駅</h3>
-                  <table class="info-table">
-                    <tbody>
-                    <tr>
-                      <th>発着駅</th>
-                      <td>佐賀駅</td>
-                    </tr>
-                    <tr>
-                      <th>所要時間</th>
-                      <td>決まり次第ご案内いたします</td>
-                    </tr>
-                    <tr>
-                      <th>料金(往復)</th>
-                      <td>決まり次第ご案内いたします</td>
-                    </tr>
-                    <tr>
-                      <th>運行時間</th>
-                      <td>決まり次第ご案内いたします</td>
-                    </tr>
-                    </tbody>
-                  </table>
+                  <div class="area-header" @click="toggleArea('saga')">
+                    <h3 class="area-title">佐賀駅</h3>
+                    <span class="toggle-icon" :class="{ active: openAreas.saga }">▼</span>
+                  </div>
+                  <div class="area-content" :class="{ open: openAreas.saga }">
+                    <table class="info-table">
+                      <tbody>
+                        <tr>
+                          <th>発着駅</th>
+                          <td>佐賀駅</td>
+                        </tr>
+                        <tr>
+                          <th>所要時間</th>
+                          <td>決まり次第ご案内いたします</td>
+                        </tr>
+                        <tr>
+                          <th>料金(往復)</th>
+                          <td>決まり次第ご案内いたします</td>
+                        </tr>
+                        <tr>
+                          <th>運行時間</th>
+                          <td>決まり次第ご案内いたします</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
                 </div>
 
                 <div class="area-detail">
-                  <h3 class="area-title">長崎駅</h3>
-                  <table class="info-table">
-                    <tbody>
-                    <tr>
-                      <th>発着駅</th>
-                      <td>長崎駅</td>
-                    </tr>
-                    <tr>
-                      <th>所要時間</th>
-                      <td>決まり次第ご案内いたします</td>
-                    </tr>
-                    <tr>
-                      <th>料金(往復)</th>
-                      <td>決まり次第ご案内いたします</td>
-                    </tr>
-                    <tr>
-                      <th>運行時間</th>
-                      <td>決まり次第ご案内いたします</td>
-                    </tr>
-                    </tbody>
-                  </table>
+                  <div class="area-header" @click="toggleArea('nagasaki')">
+                    <h3 class="area-title">長崎駅</h3>
+                    <span class="toggle-icon" :class="{ active: openAreas.nagasaki }">▼</span>
+                  </div>
+                  <div class="area-content" :class="{ open: openAreas.nagasaki }">
+                    <table class="info-table">
+                      <tbody>
+                        <tr>
+                          <th>発着駅</th>
+                          <td>長崎駅</td>
+                        </tr>
+                        <tr>
+                          <th>所要時間</th>
+                          <td>決まり次第ご案内いたします</td>
+                        </tr>
+                        <tr>
+                          <th>料金(往復)</th>
+                          <td>決まり次第ご案内いたします</td>
+                        </tr>
+                        <tr>
+                          <th>運行時間</th>
+                          <td>決まり次第ご案内いたします</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
                 </div>
 
                 <div class="area-detail">
-                  <h3 class="area-title">大分駅</h3>
-                  <table class="info-table">
-                    <tbody>
-                    <tr>
-                      <th>発着駅</th>
-                      <td>大分駅</td>
-                    </tr>
-                    <tr>
-                      <th>所要時間</th>
-                      <td>決まり次第ご案内いたします</td>
-                    </tr>
-                    <tr>
-                      <th>料金(往復)</th>
-                      <td>決まり次第ご案内いたします</td>
-                    </tr>
-                    <tr>
-                      <th>運行時間</th>
-                      <td>決まり次第ご案内いたします</td>
-                    </tr>
-                    </tbody>
-                  </table>
+                  <div class="area-header" @click="toggleArea('oita')">
+                    <h3 class="area-title">大分駅</h3>
+                    <span class="toggle-icon" :class="{ active: openAreas.oita }">▼</span>
+                  </div>
+                  <div class="area-content" :class="{ open: openAreas.oita }">
+                    <table class="info-table">
+                      <tbody>
+                        <tr>
+                          <th>発着駅</th>
+                          <td>大分駅</td>
+                        </tr>
+                        <tr>
+                          <th>所要時間</th>
+                          <td>決まり次第ご案内いたします</td>
+                        </tr>
+                        <tr>
+                          <th>料金(往復)</th>
+                          <td>決まり次第ご案内いたします</td>
+                        </tr>
+                        <tr>
+                          <th>運行時間</th>
+                          <td>決まり次第ご案内いたします</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
                 </div>
 
                 <div class="area-detail">
-                  <h3 class="area-title">宮崎駅</h3>
-                  <table class="info-table">
-                    <tbody>
-                    <tr>
-                      <th>発着駅</th>
-                      <td>宮崎駅</td>
-                    </tr>
-                    <tr>
-                      <th>所要時間</th>
-                      <td>決まり次第ご案内いたします</td>
-                    </tr>
-                    <tr>
-                      <th>料金(往復)</th>
-                      <td>決まり次第ご案内いたします</td>
-                    </tr>
-                    <tr>
-                      <th>運行時間</th>
-                      <td>決まり次第ご案内いたします</td>
-                    </tr>
-                    </tbody>
-                  </table>
+                  <div class="area-header" @click="toggleArea('miyazaki')">
+                    <h3 class="area-title">宮崎駅</h3>
+                    <span class="toggle-icon" :class="{ active: openAreas.miyazaki }">▼</span>
+                  </div>
+                  <div class="area-content" :class="{ open: openAreas.miyazaki }">
+                    <table class="info-table">
+                      <tbody>
+                        <tr>
+                          <th>発着駅</th>
+                          <td>宮崎駅</td>
+                        </tr>
+                        <tr>
+                          <th>所要時間</th>
+                          <td>決まり次第ご案内いたします</td>
+                        </tr>
+                        <tr>
+                          <th>料金(往復)</th>
+                          <td>決まり次第ご案内いたします</td>
+                        </tr>
+                        <tr>
+                          <th>運行時間</th>
+                          <td>決まり次第ご案内いたします</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
                 </div>
 
                 <div class="area-detail">
-                  <h3 class="area-title">鹿児島中央駅</h3>
-                  <table class="info-table">
-                    <tbody>
-                    <tr>
-                      <th>発着駅</th>
-                      <td>鹿児島中央駅</td>
-                    </tr>
-                    <tr>
-                      <th>所要時間</th>
-                      <td>決まり次第ご案内いたします</td>
-                    </tr>
-                    <tr>
-                      <th>料金(往復)</th>
-                      <td>決まり次第ご案内いたします</td>
-                    </tr>
-                    <tr>
-                      <th>運行時間</th>
-                      <td>決まり次第ご案内いたします</td>
-                    </tr>
-                    </tbody>
-                  </table>
+                  <div class="area-header" @click="toggleArea('kagoshima')">
+                    <h3 class="area-title">鹿児島中央駅</h3>
+                    <span class="toggle-icon" :class="{ active: openAreas.kagoshima }">▼</span>
+                  </div>
+                  <div class="area-content" :class="{ open: openAreas.kagoshima }">
+                    <table class="info-table">
+                      <tbody>
+                        <tr>
+                          <th>発着駅</th>
+                          <td>鹿児島中央駅</td>
+                        </tr>
+                        <tr>
+                          <th>所要時間</th>
+                          <td>決まり次第ご案内いたします</td>
+                        </tr>
+                        <tr>
+                          <th>料金(往復)</th>
+                          <td>決まり次第ご案内いたします</td>
+                        </tr>
+                        <tr>
+                          <th>運行時間</th>
+                          <td>決まり次第ご案内いたします</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
                 </div>
 
                 <div class="area-detail">
-                  <h3 class="area-title">熊本空港(往路のみ)</h3>
-                  <table class="info-table">
-                    <tbody>
-                    <tr>
-                      <th>発着駅</th>
-                      <td>熊本空港</td>
-                    </tr>
-                    <tr>
-                      <th>所要時間</th>
-                      <td>決まり次第ご案内いたします</td>
-                    </tr>
-                    <tr>
-                      <th>料金(往復)</th>
-                      <td>決まり次第ご案内いたします</td>
-                    </tr>
-                    <tr>
-                      <th>運行時間</th>
-                      <td>決まり次第ご案内いたします</td>
-                    </tr>
-                    </tbody>
-                  </table>
+                  <div class="area-header" @click="toggleArea('airport')">
+                    <h3 class="area-title">熊本空港(往路のみ)</h3>
+                    <span class="toggle-icon" :class="{ active: openAreas.airport }">▼</span>
+                  </div>
+                  <div class="area-content" :class="{ open: openAreas.airport }">
+                    <table class="info-table">
+                      <tbody>
+                        <tr>
+                          <th>発着駅</th>
+                          <td>熊本空港</td>
+                        </tr>
+                        <tr>
+                          <th>所要時間</th>
+                          <td>決まり次第ご案内いたします</td>
+                        </tr>
+                        <tr>
+                          <th>料金(往復)</th>
+                          <td>決まり次第ご案内いたします</td>
+                        </tr>
+                        <tr>
+                          <th>運行時間</th>
+                          <td>決まり次第ご案内いたします</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
                 </div>
               </div>
             </div>
           </section>
 
           <section id="parking" class="content-section">
-            <h2>駐車場のご案内</h2>
-            
+            <h2>乗降所のご案内</h2>
+
             <div class="parking-info">
-              <div class="route-description">
-                <p>コンサートチケットをお持ちの方を対象に、駐車券(有料駐車場)を販売致します。</p>
-                <p>駐車場は、〇〇〇〇となります。</p>
-                <p>駐車券の発売詳細につきましては、決まり次第、当サイトにてご案内させていただきます。</p>
-              </div>
-
-              <div class="parking-fee">
-                <div class="route-details">
-                  <table class="info-table">
-                    <tbody>
-                    <tr>
-                      <th>駐車券料金(1台)</th>
-                      <td>
-                        【駐車券】〇〇〇〇円(税込)
-                      </td>
-                    </tr>
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-
               <div class="parking-map">
-                <p class="map-placeholder">駐車場マップは決まり次第ご案内いたします。</p>
+                <img src="/images/park-map.jpg" alt="駐車場マップ" />
+              </div>
+              <div class="route-description">
+                <p>ツアーバス、パーク&バスライド、シャトルバス、タクシーご利用でご来場のお客様の乗降所は下記になります。</p>
               </div>
 
-<div class="notice-box">
-  <h4>注意事項</h4>
-  <p>※駐車場に関する詳細な注意事項は、決まり次第ご案内させていただきます。</p>
-</div>
+              <div class="notice-box">
+                <h4>注意事項</h4>
+                <p>※詳細な注意事項は、決まり次第ご案内させていただきます。</p>
+              </div>
             </div>
           </section>
 
-          <section id="station" class="content-section">
-            <h2>最寄駅からのアクセス</h2>
-            <p>ここに最寄駅からの情報が入ります。</p>
-          </section>
+<section id="wheelchair" class="content-section">
+  <h2>車椅子でのご来場について</h2>
 
-          <section id="wheelchair" class="content-section">
-            <h2>車いすでのご来場について</h2>
-            
-            <div class="wheelchair-info">
-              <p class="intro-text">車いすでご来場の方へのご案内です。</p>
-              
-              <ul class="wheelchair-list">
-                <li>◯車いす専用の駐車場(有料)をご用意致します。</li>
-                <li>◯一般駐車券の購入は不要です。車いす専用駐車場券(有料)の発売詳細に関しては、決まり次第、当サイトにてご案内いたします。</li>
-              </ul>
-            </div>
-          </section>
+  <div class="wheelchair-info">
+    <p class="intro-text">車椅子でご来場の方へのご案内です。</p>
+
+    <ul class="wheelchair-list">
+      <li>車椅子専用の駐車場(有料)をご用意致します。</li>
+      <li>一般駐車券の購入は不要です。車椅子専用駐車場券(有料)の発売詳細に関しては、決まり次第、当サイトにてご案内いたします。</li>
+    </ul>
+  </div>
+</section>
 
           <section id="faq" class="content-section">
             <h2>よくある質問</h2>
-            
+
             <div class="faq-info">
               <p class="intro-text">ご来場に関する主なQ&Aです。お問い合わせの前にご確認ください。</p>
-              
+
               <div class="faq-list">
                 <div class="faq-item">
-                  <p class="question">Q. 自転車、バイク等の駐輪場はありますか?</p>
-                  <p class="answer">A. 上記に関する回答を記入いたします。</p>
+                  <div class="faq-header" @click="toggleFaq('bicycle')">
+                    <p class="question">Q. 自転車、バイク等の駐輪場はありますか？</p>
+                    <div class="toggle-icon" :class="{ active: openFaqs.bicycle }">
+                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <line class="horizontal" x1="4" y1="12" x2="20" y2="12" stroke="#333" stroke-width="2" stroke-linecap="round"/>
+                        <line class="vertical" x1="12" y1="4" x2="12" y2="20" stroke="#333" stroke-width="2" stroke-linecap="round"/>
+                      </svg>
+                    </div>
+                  </div>
+                  <div class="faq-answer" :class="{ open: openFaqs.bicycle }">
+                    <p class="answer">A. 上記に関する回答を記入いたします。</p>
+                  </div>
                 </div>
 
                 <div class="faq-item">
-                  <p class="question">Q. 妊婦なのですが、車いす専用駐車場の利用は可能でしょうか?</p>
-                  <p class="answer">A. 上記に関する回答を記入いたします。</p>
+                  <div class="faq-header" @click="toggleFaq('pregnancy')">
+                    <p class="question">Q. 妊婦なのですが、車いす専用駐車場の利用は可能でしょうか？</p>
+                    <div class="toggle-icon" :class="{ active: openFaqs.pregnancy }">
+                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <line class="horizontal" x1="4" y1="12" x2="20" y2="12" stroke="#333" stroke-width="2" stroke-linecap="round"/>
+                        <line class="vertical" x1="12" y1="4" x2="12" y2="20" stroke="#333" stroke-width="2" stroke-linecap="round"/>
+                      </svg>
+                    </div>
+                  </div>
+                  <div class="faq-answer" :class="{ open: openFaqs.pregnancy }">
+                    <p class="answer">A. 上記に関する回答を記入いたします。</p>
+                  </div>
                 </div>
 
                 <div class="faq-item">
-                  <p class="question">Q. 公演当日、送迎は可能でしょうか?</p>
-                  <p class="answer">A. 上記に関する回答を記入いたします。</p>
+                  <div class="faq-header" @click="toggleFaq('pickup')">
+                    <p class="question">Q. 公演当日、送迎は可能でしょうか？</p>
+                    <div class="toggle-icon" :class="{ active: openFaqs.pickup }">
+                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <line class="horizontal" x1="4" y1="12" x2="20" y2="12" stroke="#333" stroke-width="2" stroke-linecap="round"/>
+                        <line class="vertical" x1="12" y1="4" x2="12" y2="20" stroke="#333" stroke-width="2" stroke-linecap="round"/>
+                      </svg>
+                    </div>
+                  </div>
+                  <div class="faq-answer" :class="{ open: openFaqs.pickup }">
+                    <p class="answer">A. 上記に関する回答を記入いたします。</p>
+                  </div>
                 </div>
               </div>
             </div>
@@ -527,13 +612,16 @@
         <!-- クロージングセクション -->
         <section class="closing-section">
           <p class="closing-text">
-            ご来場の皆さまがスムーズにアクセスできるよう、<span>事前のご確認とチケットのご購入をお願いいたします。</span><br>公演当日は時間に余裕をもって、安全にお越しください。
+                   <span class="sp">ご来場の皆さまがスムーズにアクセスできるよう、<span class="tab">
+     事前のご確認とチケットのご購入をお願いいたします。</span></span>
+            <br />
+            公演当日は時間に余裕をもって、安全にお越しください。
           </p>
           <div class="official-link">
             <a href="https://backnumber.info/feature/stadiumtour2026" target="_blank" rel="noopener noreferrer" class="official-button">
               back number 熊本公演詳細はこちら
               <svg class="arrow" width="8" height="14" viewBox="0 0 8 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M1 1L7 7L1 13" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M1 1L7 7L1 13" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
               </svg>
             </a>
           </div>
@@ -544,222 +632,324 @@
 </template>
 
 <script setup>
-import { ref, onMounted, onUnmounted } from 'vue'
+import { ref, onMounted, onUnmounted } from "vue";
 
-const activeSection = ref('notes')
-const isTransitioning = ref(false)
+const activeSection = ref("notes");
+const isTransitioning = ref(false);
+const isMenuOpen = ref(false);
+
+const openAreas = ref({
+  hakata: false,
+  kokura: false,
+  kumamoto: false,
+  saga: false,
+  nagasaki: false,
+  oita: false,
+  miyazaki: false,
+  kagoshima: false,
+  airport: false,
+});
+
+const openFaqs = ref({
+  bicycle: false,
+  pregnancy: false,
+  pickup: false
+});
+
+const toggleMenu = () => {
+  isMenuOpen.value = !isMenuOpen.value;
+  
+  // ナビゲーション要素を取得
+  const nav = document.querySelector('.fixed-navigation');
+  
+  if (isMenuOpen.value) {
+    nav.classList.add('mobile-open');
+    document.body.style.overflow = 'hidden';
+  } else {
+    nav.classList.remove('mobile-open');
+    document.body.style.overflow = '';
+  }
+};
+
+const closeMenu = () => {
+  isMenuOpen.value = false;
+  const nav = document.querySelector('.fixed-navigation');
+  nav.classList.remove('mobile-open');
+  document.body.style.overflow = '';
+};
+
+const handleNavClick = (id) => {
+  scrollTo(id);
+  closeMenu(); // メニューを閉じる
+};
+
+const toggleFaq = (faq) => {
+  Object.keys(openFaqs.value).forEach(key => {
+    if (key !== faq) {
+      openFaqs.value[key] = false;
+    }
+  });
+  openFaqs.value[faq] = !openFaqs.value[faq];
+};
+
+const toggleArea = (area) => {
+  openAreas.value[area] = !openAreas.value[area];
+};
 
 const scrollTo = async (id) => {
-  if (isTransitioning.value) return
-  
-  isTransitioning.value = true
-  const mainContent = document.querySelector('.main-content')
-  
+  if (isTransitioning.value) return;
+
+  isTransitioning.value = true;
+  const mainContent = document.querySelector(".main-content");
+
   if (!mainContent) {
-    isTransitioning.value = false
-    return
+    isTransitioning.value = false;
+    return;
   }
-  
-  // フェードアウト
-  mainContent.style.opacity = '0'
-  
-  await new Promise(resolve => setTimeout(resolve, 300))
-  
-  // スクロール
-  const element = document.getElementById(id)
+
+  mainContent.style.opacity = "0";
+  await new Promise((resolve) => setTimeout(resolve, 300));
+
+  const element = document.getElementById(id);
   if (element) {
-    const offset = 100 // ナビゲーション分のオフセット
-    const elementPosition = element.getBoundingClientRect().top + window.pageYOffset
-    const offsetPosition = elementPosition - offset
-    
+    const offset = 0;
+    const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
+    const offsetPosition = elementPosition - offset;
+
     window.scrollTo({
       top: offsetPosition,
-      behavior: 'auto'
-    })
+      behavior: "auto",
+    });
   }
-  
-  await new Promise(resolve => setTimeout(resolve, 100))
-  
-  // フェードイン
-  mainContent.style.opacity = '1'
-  
-  activeSection.value = id
-  
-  await new Promise(resolve => setTimeout(resolve, 300))
-  isTransitioning.value = false
-}
+
+  await new Promise((resolve) => setTimeout(resolve, 100));
+  mainContent.style.opacity = "1";
+  activeSection.value = id;
+
+  await new Promise((resolve) => setTimeout(resolve, 300));
+  isTransitioning.value = false;
+};
 
 const scrollToTop = async () => {
-  if (isTransitioning.value) return
-  
-  isTransitioning.value = true
-  const mainContent = document.querySelector('.main-content')
-  
+  if (isTransitioning.value) return;
+
+  isTransitioning.value = true;
+  const mainContent = document.querySelector(".main-content");
+
   if (!mainContent) {
-    isTransitioning.value = false
-    return
+    isTransitioning.value = false;
+    return;
   }
-  
-  // フェードアウト
-  mainContent.style.opacity = '0'
-  
-  await new Promise(resolve => setTimeout(resolve, 300))
-  
-  // ページトップへスクロール
-  window.scrollTo({ 
+
+  mainContent.style.opacity = "0";
+  await new Promise((resolve) => setTimeout(resolve, 300));
+
+  window.scrollTo({
     top: 0,
-    behavior: 'auto'
-  })
-  
-  await new Promise(resolve => setTimeout(resolve, 100))
-  
-  // フェードイン
-  mainContent.style.opacity = '1'
-  
-  activeSection.value = 'notes'
-  
-  await new Promise(resolve => setTimeout(resolve, 300))
-  isTransitioning.value = false
-}
+    behavior: "auto",
+  });
+
+  await new Promise((resolve) => setTimeout(resolve, 100));
+  mainContent.style.opacity = "1";
+  activeSection.value = "notes";
+
+  await new Promise((resolve) => setTimeout(resolve, 300));
+  isTransitioning.value = false;
+};
 
 const updateActiveSection = () => {
-  if (isTransitioning.value) return
-  
-  const sections = ['notes', 'map', 'shuttle', 'park-ride', 'tour-bus', 'parking', 'station', 'wheelchair', 'faq']
-  const windowHeight = window.innerHeight
-  const documentHeight = document.documentElement.scrollHeight
-  const scrollTop = window.pageYOffset || document.documentElement.scrollTop
-  
+  if (isTransitioning.value) return;
+
+  const sections = ["notes", "map", "shuttle", "park-ride", "tour-bus", "parking", "station", "wheelchair", "faq"];
+  const windowHeight = window.innerHeight;
+  const documentHeight = document.documentElement.scrollHeight;
+  const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
   if (scrollTop + windowHeight >= documentHeight - 50) {
-    activeSection.value = 'faq'
-    return
+    activeSection.value = "faq";
+    return;
   }
-  
+
   for (const sectionId of sections) {
-    const element = document.getElementById(sectionId)
+    const element = document.getElementById(sectionId);
     if (element) {
-      const rect = element.getBoundingClientRect()
+      const rect = element.getBoundingClientRect();
       if (rect.top <= 200 && rect.bottom >= 200) {
-        activeSection.value = sectionId
-        break
+        activeSection.value = sectionId;
+        break;
       }
     }
   }
-}
+};
 
-// Intersection Observer でスクロールアニメーション
 const setupScrollAnimation = () => {
-  // セクション用のObserver（表示のみ管理、非表示は別で制御）
-  const sectionStates = new Map()
-  
+  const sectionStates = new Map();
+
   const sectionObserver = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
-        const id = entry.target.id
-        const wasVisible = sectionStates.get(id) || false
-        
+        const id = entry.target.id;
+        const wasVisible = sectionStates.get(id) || false;
+
         if (entry.isIntersecting && !wasVisible) {
-          // 画面内に入った：表示
-          entry.target.classList.add('is-visible')
-          sectionStates.set(id, true)
+          entry.target.classList.add("is-visible");
+          sectionStates.set(id, true);
         } else if (!entry.isIntersecting && wasVisible) {
-          // 画面外に出た：非表示
-          entry.target.classList.remove('is-visible')
-          sectionStates.set(id, false)
+          entry.target.classList.remove("is-visible");
+          sectionStates.set(id, false);
         }
-      })
+      });
     },
     {
       threshold: 0,
-      rootMargin: '-180px 0px -180px 0px'
+      rootMargin: "-180px 0px -180px 0px",
     }
-  )
+  );
 
-  // すべてのコンテンツセクションを監視
-  const sections = document.querySelectorAll('.content-section')
+  const sections = document.querySelectorAll(".content-section");
   sections.forEach((section) => {
-    sectionStates.set(section.id, false)
-    sectionObserver.observe(section)
-  })
-  
-// ナビゲーション用Observer
-  const navigation = document.querySelector('.fixed-navigation')
-  const notesSection = document.getElementById('notes')
-  
+    sectionStates.set(section.id, false);
+    sectionObserver.observe(section);
+  });
+
+  const navigation = document.querySelector(".fixed-navigation");
+  const notesSection = document.getElementById("notes");
+
   if (navigation && notesSection) {
-    let isNavVisible = false
-    
+    let isNavVisible = false;
+
     const navObserver = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting && !isNavVisible) {
-            navigation.classList.add('is-visible')
-            isNavVisible = true
+            navigation.classList.add("is-visible");
+            isNavVisible = true;
           } else if (!entry.isIntersecting && isNavVisible) {
-            const rect = notesSection.getBoundingClientRect()
+            const rect = notesSection.getBoundingClientRect();
             if (rect.top > window.innerHeight / 2) {
-              navigation.classList.remove('is-visible')
-              isNavVisible = false
+              navigation.classList.remove("is-visible");
+              isNavVisible = false;
             }
           }
-        })
+        });
       },
       {
         threshold: 0,
-        rootMargin: '-150px 0px -150px 0px'
+        rootMargin: "-180px 0px -180px 0px",
       }
-    )
-    
-    navObserver.observe(notesSection)
+    );
+
+    navObserver.observe(notesSection);
   }
-}
+};
 
 onMounted(() => {
-  window.addEventListener('scroll', updateActiveSection)
-  updateActiveSection()
-  
+  window.addEventListener("scroll", updateActiveSection);
+  updateActiveSection();
+
   setTimeout(() => {
-    setupScrollAnimation()
-    
-    // ページ途中でリロードした場合の初期表示チェック
-    const navigation = document.querySelector('.fixed-navigation')
-    const notesSection = document.getElementById('notes')
-    const sections = document.querySelectorAll('.content-section')
-    
+    setupScrollAnimation();
+
+    const navigation = document.querySelector(".fixed-navigation");
+    const notesSection = document.getElementById("notes");
+    const sections = document.querySelectorAll(".content-section");
+
     if (notesSection) {
-      const rect = notesSection.getBoundingClientRect()
-      // 注意事項が画面内または上にある場合はナビとセクションを表示
+      const rect = notesSection.getBoundingClientRect();
       if (rect.top < window.innerHeight - 150) {
         if (navigation) {
-          navigation.classList.add('is-visible')
+          navigation.classList.add("is-visible");
         }
       }
     }
-    
-    // 各セクションも初期チェック
+
     sections.forEach((section) => {
-      const rect = section.getBoundingClientRect()
+      const rect = section.getBoundingClientRect();
       if (rect.top < window.innerHeight - 100 && rect.bottom > 150) {
-        section.classList.add('is-visible')
+        section.classList.add("is-visible");
       }
-    })
-  }, 100)
-})
+    });
+  }, 100);
+});
 
 onUnmounted(() => {
-  window.removeEventListener('scroll', updateActiveSection)
-  // スクロールイベントのクリーンアップは自動的に行われる
-})
+  window.removeEventListener("scroll", updateActiveSection);
+  document.body.style.overflow = ''; // クリーンアップ
+});
 </script>
 
 <style scoped>
 .access-page {
   width: 100%;
   min-height: 100vh;
-  background: url('/images/main-background.jpg') no-repeat center center;
+  background: url("/images/main-background.jpg") no-repeat center center;
   background-attachment: fixed;
   background-size: cover;
-  font-family: 'Helvetica Neue', Arial, 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', Meiryo, sans-serif;
+  font-family: "noto-sans-cjk-jp", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* ハンバーガーメニューボタン */
+.hamburger-button {
+  display: none;
+  position: fixed;
+  top: 13px;
+  right: 15px; /* left: 20px; から変更 */
+  z-index: 2000;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: #333;
+  border: none;
+  cursor: pointer;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  padding: 0;
+  transition: background 0.3s;
+}
+
+
+.hamburger-button span {
+  display: block;
+  width: 25px;
+  height: 2px;
+  background: #fff;
+  transition: all 0.3s;
+}
+
+.hamburger-button.active span:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.hamburger-button.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger-button.active span:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+/* モバイルメニューオーバーレイ */
+.mobile-menu-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1500;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s;
+}
+
+.mobile-menu-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
 }
 
 /* ヒーローセクション - 中央配置 */
@@ -767,7 +957,7 @@ onUnmounted(() => {
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 50px 20px 0;
+  padding: 40px 20px 0;
 }
 
 .main-visual {
@@ -777,8 +967,8 @@ onUnmounted(() => {
 }
 
 .main-visual img {
-  max-width: 400px;
-  width: 90%;
+  max-width: 380px;
+  width: 100%;
   height: auto;
 }
 
@@ -837,11 +1027,10 @@ onUnmounted(() => {
 
 .content-wrapper {
   position: relative;
-  max-width: 1400px;
+  max-width: 1280px;
   margin: 0 auto;
   padding: 0 40px 0 270px;
 }
-
 
 .notes-with-nav {
   position: absolute;
@@ -859,7 +1048,7 @@ onUnmounted(() => {
   background: #fff;
   border-radius: 16px;
   padding: 20px 0 20px 20px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   z-index: 1000;
   opacity: 0;
   transition: opacity 0.8s ease;
@@ -869,11 +1058,19 @@ onUnmounted(() => {
 .fixed-navigation.is-visible {
   opacity: 1;
 }
+
+.nav-logo {
+  background: #333;
+  margin: -20px 0px 10px -20px;
+  padding: 10px 20px;
+  border-radius: 16px 16px 0 0;
+}
+
 .nav-logo h1 {
   font-size: 24px;
   font-weight: bold;
-  color: #333;
-  margin-bottom: 10px;
+  color: #fff;
+  margin: 0;
 }
 
 .nav-menu {
@@ -896,7 +1093,7 @@ onUnmounted(() => {
 .nav-menu li::before {
   content: "•";
   position: absolute;
-  left: -20px;
+  left: -16px;
   top: 50%;
   transform: translateY(-50%);
   opacity: 0;
@@ -939,7 +1136,7 @@ onUnmounted(() => {
 }
 
 .content-section {
-  padding: 80px 40px 60px;
+  padding: 80px 40px;
   opacity: 0;
   transition: opacity 0.8s ease;
 }
@@ -999,7 +1196,7 @@ onUnmounted(() => {
 }
 
 .notes-list li:before {
-  content: "◯";
+  content: "〇";
   position: absolute;
   left: 0;
 }
@@ -1060,6 +1257,7 @@ onUnmounted(() => {
 .route-description {
   margin-bottom: 30px;
   line-height: 1.8;
+  text-align: left;
 }
 
 .route-description p {
@@ -1068,8 +1266,8 @@ onUnmounted(() => {
 
 .route-diagram {
   width: 100%;
-  margin: 60px auto;
   text-align: center;
+  margin: 50px 0;
 }
 
 .route-diagram img {
@@ -1103,7 +1301,56 @@ onUnmounted(() => {
   border-bottom: none;
 }
 
+.area-detail {
+  margin-bottom: 40px;
+  overflow: hidden;
+}
 
+
+
+.area-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #333;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.area-title {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+.toggle-icon {
+  font-size: 20px;
+  transition: transform 0.3s;
+  color: #666;
+}
+
+.toggle-icon.active {
+  transform: rotate(180deg);
+}
+
+.area-content {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.4s ease-in-out;
+  overflow: hidden;
+}
+
+.area-content > table {
+  min-height: 0;
+  padding: 20px 0;
+  margin-top: 10px;
+}
+
+.area-content.open {
+  grid-template-rows: 1fr;
+}
 
 .notice-box h4 {
   font-size: 18px;
@@ -1120,35 +1367,20 @@ onUnmounted(() => {
   margin-top: 40px;
 }
 
-.area-detail {
-  margin-bottom: 50px;
-}
-
-.area-title {
-  font-size: 22px;
-  font-weight: bold;
-  padding-bottom: 10px;
-  border-bottom: 3px solid #333;
-  margin-bottom: 20px;
-  margin-left: ;
-}
-
 .parking-fee {
   margin: 40px 0;
 }
 
 .parking-map {
   margin: 40px 0;
-  padding: 60px 30px;
-  background: #f5f5f5;
   border-radius: 8px;
   text-align: center;
 }
 
-.map-placeholder {
-  font-size: 18px;
-  color: #666;
-  line-height: 1.8;
+.parking-map img {
+  width: 100%;
+  height: auto;
+  display: block;
 }
 
 .parking-notes {
@@ -1161,12 +1393,6 @@ onUnmounted(() => {
   margin-bottom: 15px;
   padding-bottom: 10px;
   border-bottom: 2px solid #333;
-}
-
-.notes-placeholder {
-  font-size: 16px;
-  line-height: 1.8;
-  color: #666;
 }
 
 .intro-text {
@@ -1189,6 +1415,34 @@ onUnmounted(() => {
   font-size: 16px;
 }
 
+.wheelchair-list li:last-child {
+  margin-bottom: 0;
+}
+
+.wheelchair-list li {
+  margin-bottom: 20px;
+  padding-left: 1.5em;
+  position: relative;
+  line-height: 1.8;
+  color: #333;
+  font-size: 16px;
+}
+
+.wheelchair-list li:before {
+  content: "〇";
+  position: absolute;
+  left: 0;
+}
+
+.wheelchair-list li:last-child {
+  margin-bottom: 0;
+}
+
+
+.area-detail:last-child {
+  margin-bottom: 0;
+}
+
 .faq-info .intro-text {
   font-size: 16px;
   line-height: 1.8;
@@ -1202,29 +1456,80 @@ onUnmounted(() => {
 }
 
 .faq-item {
-  margin-bottom: 30px;
-  padding-bottom: 30px;
-  border-bottom: 1px dotted #ccc;
+  margin-bottom: 20px;
+  overflow: hidden;
 }
 
-.faq-item:last-child {
-  border-bottom: none;
-  padding-bottom: 0;
+.faq-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  border: 1px solid #ddd;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.faq-header:hover {
+  background: #f8f8f8;
 }
 
 .question {
   font-size: 16px;
   font-weight: bold;
   line-height: 1.8;
-  margin-bottom: 10px;
+  margin: 0;
   color: #333;
+  flex: 1;
+}
+
+.toggle-icon {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+  margin-left: 16px;
+}
+
+.toggle-icon svg {
+  display: block;
+}
+
+.toggle-icon .vertical {
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  transform-origin: center;
+}
+
+.toggle-icon.active .vertical {
+  opacity: 0;
+  transform: rotate(90deg);
+}
+
+.faq-answer {
+  max-height: 0;
+  opacity: 0;
+  transition: max-height 0.2s ease-in-out, opacity 0.2s ease-in-out;
+  overflow: hidden;
+  background: #333;
+}
+
+.faq-answer.open {
+  max-height: 500px;
+  opacity: 1;
+}
+
+.faq-answer > .answer {
+  padding: 20px;
+  margin: 0;
+  color: #fff;
+  line-height: 1.8;
 }
 
 .answer {
   font-size: 16px;
-  line-height: 1.8;
-  color: #333;
-  margin: 0;
+}
+
+.faq-item:last-child {
+  margin-bottom: 0;
 }
 
 .closing-section {
@@ -1268,80 +1573,391 @@ onUnmounted(() => {
   flex-shrink: 0;
 }
 
-/* レスポンシブ対応 */
+/* ===============================================
+   レスポンシブデザイン
+   =============================================== */
+@media (min-width: 861px) and (max-width: 1100px) {
+   .block{
+    display: block;
+}
+}
+
+@media (min-width: 861px) and (max-width: 1000px) {
+   .step{
+    display: block;
+}
+}
+
+   
+   
+/* タブレット - 860px以下 */
 @media (max-width: 860px) {
+  /* ハンバーガーメニューボタンを表示 */
+  .hamburger-button {
+    display: flex;
+  }
+
+  /* モバイルメニューオーバーレイを有効化 */
+  .mobile-menu-overlay {
+    display: block;
+  }
+
+  /* サイドナビゲーションをモバイルメニューに変更 */
   .content-wrapper {
     padding: 0 20px;
-    flex-direction: column;
-    gap: 0;
   }
 
   .notes-with-nav {
-    position: static;
-    width: 90%;
-    max-width: 400px;
-    margin: 20px auto;
-    height: auto;
+    position: fixed;
+    right: 0; /* 右端基準 */
+    left: auto; /* leftの指定を無効化 */
+    top: 0;
+    width: 280px;
+    height: 100vh;
+    pointer-events: auto;
+    z-index: 1600;
+    transform: translateX(100%); /* 右に100%移動して隠す */
+    transition: transform 0.3s ease;
+  }
+
+  /* メニューが開いたときだけ表示 */
+  .notes-with-nav:has(.mobile-open) {
+    transform: translateX(0); /* 元の位置に戻す */
   }
 
   .fixed-navigation {
     position: static;
     width: 100%;
-    transform: none;
+    height: 100%;
+    border-radius: 0;
+    opacity: 1;
+    overflow-y: auto;
+    padding: 80px 20px 20px;
+    margin-left: 0; /* これを追加 */
+  }
+
+  .nav-logo {
+    margin: -80px -20px 20px -20px;
+    border-radius: 0;
+    padding: 20px;
   }
 
   .nav-menu {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
+    padding-left: 0;
   }
 
+  .nav-menu li {
+    padding-left: 20px;
+  }
+
+  .nav-menu li::before {
+    left: 0;
+  }
+
+  .nav-menu a {
+    font-size: 16px;
+    padding: 15px 0;
+  }
+
+  /* メインコンテンツの調整 */
   .main-content {
     max-width: 100%;
   }
-}
-
-@media (max-width: 870px) {
-  .hero-section {
-    padding: 30px 20px 0;
-  }
-
-  .event-date {
-    font-size: 28px;
-  }
-  
-  .venue-name,
-  .page-title {
-    font-size: 28px;
-  }
-
-  .nav-menu {
-    grid-template-columns: 1fr;
-  }
 
   .content-section {
-    padding: 40px 20px;
+    padding: 60px 20px;
   }
 
   .content-section h2 {
-    font-size: 1.5rem;
+    font-size: 28px;
+    margin-bottom: 40px;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 860px) {
+  .tab{
+    display: block;
+  }
+}
+
+
+/* スマホ - 480px以下 */
+@media (max-width: 480px) {
+  /* ヒーローセクション */
+  .hero-section {
+    padding: 30px 5% 0;
+    min-height: 100vh; /* 画面の高さ100% */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* 中央揃え */
   }
 
+  .main-visual {
+    padding: 0 0 30px;
+  }
+
+  .main-visual img {
+    max-width: 350px;
+  }
+
+  .event-date {
+    font-size: 24px;
+  }
+
+  .day {
+    font-size: 20px;
+    margin-left: 0px;
+  }
+
+  .event-time {
+    font-size: 16px;
+    margin: 20px 0;
+  }
+
+  .small {
+    font-size: 14px;
+  }
+
+  .venue-name {
+    font-size: 24px;
+  }
+
+  .page-title {
+    font-size: 24px;
+  }
+
+  .description {
+    padding: 30px 15px 40px;
+  }
+
+  .description p {
+    font-size: 14px;
+      text-align: left;
+  }
+
+
+  /* コンテンツセクション */
+  .content-section {
+    padding: 40px 15px;
+  }
+
+  .content-section h2 {
+    font-size: 24px;
+    margin-bottom: 30px;
+  }
+
+  .content-section .section-intro {
+    font-size: 16px;
+  }
+  
+  .sp{
+    display: block;
+  }
+
+  .notes-list {
+    padding: 15px 0 0 0;
+  }
+
+  .notes-list li {
+    font-size: 14px;
+    padding-left: 20px;
+  }
+  
+  /* 最後の項目のマージンを削除 */
+.notes-list li:last-child {
+  margin-bottom: 0;
+}
+
+  /* テーブル */
+  .info-table th,
+  .info-table td {
+    display: block;
+    width: 100%;
+    padding: 10px 0;
+  }
+
+  .info-table th {
+    font-size: 14px;
+    padding-bottom: 5px;
+    border-bottom: none; 
+  }
+
+  .info-table td {
+    font-size: 14px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc; 
+  }
+
+  .info-table tr {
+    display: block;
+    margin-bottom: 20px;
+  }
+  
+  tr:last-child td[data-v-1d00d2c6] {
+      border-bottom: 1px solid #ccc; 
+  }
+  
+    .info-table tr:last-child {
+    margin-bottom: 0;
+  }
+  
+  .toggle-icon {
+  font-size: 20px;
+  transition: transform 0.3s;
+  color: #666;
+  transform: translateY(-7px); 
+}
+
+.toggle-icon.active {
+  transform: translateY(7px) rotate(180deg);
+}
+
+  /* 地図 */
   .map-container iframe {
     height: 300px;
   }
 
+  /* FAQ */
+  .faq-header {
+    padding: 15px;
+  }
+
+  .question {
+    font-size: 14px;
+  }
+
+  .toggle-icon {
+    width: 20px;
+    height: 20px;
+  }
+
+  .answer {
+    font-size: 14px;
+  }
+
+  /* クロージング */
   .closing-section {
-    padding: 30px 20px 60px;
+    padding: 30px 15px 60px;
   }
 
   .closing-text {
     font-size: 14px;
+    text-align: left;
   }
 
   .official-button {
     font-size: 14px;
-    padding: 15px 30px;
+    padding: 12px 24px;
   }
+
+  /* ハンバーガーボタン */
+  .hamburger-button {
+    width: 45px;
+    height: 45px;
+    top: 15px;
+    right: 15px;
+  }
+  .hamburger-button span {
+    width: 22px;
+  }
+
+  /* モバイルナビゲーション - スマホは全面表示 */
+  .notes-with-nav {
+    width: 100%; /* 250px から 100% に変更 */
+  }
+  
+  .nav-logo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 0;
+    border-radius: 0;
+    padding: 20px;
+    width: 100%; /* auto から 100% に変更 */
+  }
+
+  .nav-menu {
+    padding-left: 0;
+    text-align: center; /* 中央揃え */
+    margin-top: 20px; /* ロゴの下にスペース */
+  }
+  
+  .nav-menu a {
+    padding: 18px 0;
+  }
+
+  .nav-menu li {
+    padding-left: 0; /* 20px から 0 に変更 */
+  }
+
+  .nav-menu li::before {
+    display: none; /* ・を非表示 */
+  }
+  
+    .route-description  {
+    margin-bottom: 20px;
+  }
+  
+  .route-description p {
+    font-size: 14px;
+  }
+  
+  .route-diagram{
+    margin:25px 0 ;
+  }
+  
+  .notice-box h4{
+    font-size: 16px;
+  }
+  
+    .notice-box p{
+    font-size: 14px;
+  }
+  
+  .area-title{
+    font-size: 18px;
+  }
+  
+  .tour-bus-details{
+    margin-top: 30px;
+  }
+  
+  .route-details{
+    padding: 0 ;
+  }
+  
+  .parking-map{
+    margin:30px 0;
+  }
+  
+  .intro-text{
+    font-size: 14px !important;
+  }
+  
+  .wheelchair-list li{
+    font-size: 14px;
+  }
+  
+  .faq-header {
+    padding: 15px;
+    align-items: center; /* 中央揃え */
+  }
+
+  .question {
+    font-size: 14px;
+  }
+  
+  .toggle-icon svg {
+        width: 20px;
+    height: 20px;
+    transform: translateY(6px);
+  }
+  
+  .toggle-icon.active svg {
+  transform: translateY(6px); /* activeの時はさらに上に */
+}
+
 }
 </style>
