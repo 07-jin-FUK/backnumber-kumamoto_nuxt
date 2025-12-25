@@ -1814,9 +1814,9 @@ onUnmounted(() => {
     margin-bottom: 10px;
   }
   
-  tr:last-child td{
-      border-bottom: 1px solid #ccc; 
-  }
+.info-table tr:last-child td {
+  border-bottom: 1px solid #ccc !important;
+}
   
     .info-table tr:last-child {
     margin-bottom: 20px;
