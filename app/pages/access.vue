@@ -916,6 +916,8 @@ const setupScrollAnimation = () => {
 };
 
 onMounted(() => {
+    
+      window.scrollTo(0, 0);
   window.addEventListener("scroll", updateActiveSection);
   window.addEventListener("resize", handleResize);
   updateActiveSection();
