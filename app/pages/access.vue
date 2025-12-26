@@ -1426,6 +1426,10 @@ const handleResize = () => {
   left: 0;
 }
 
+.notes-list li:last-child {
+  margin-bottom: 0;
+}
+
 .text-red {
   color: #d32f2f;
 }
