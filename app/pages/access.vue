@@ -791,6 +791,7 @@ const scrollToTop = async () => {
 
   isTransitioning.value = true;
   isLoading.value = true;
+  closeMenu(); // この行を追加
   
   const overlay = document.querySelector('.loading-overlay');
   const accessPage = document.querySelector('.access-page');
@@ -1946,8 +1947,8 @@ const handleResize = () => {
   }
 
   .day {
-    font-size: 16px;
-    margin-left: 0px;
+    font-size: 14px;
+    margin-left: 5px;
   }
 
   .event-time {
@@ -2133,7 +2134,7 @@ const handleResize = () => {
   .nav-menu {
     padding-left: 0;
     text-align: center; /* 中央揃え */
-    margin-top: 85px; /* ロゴの下にスペース */
+    margin-top: 95px; /* ロゴの下にスペース */
   }
   
   .nav-menu a {
