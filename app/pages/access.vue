@@ -15,7 +15,7 @@
     <!-- モバイルメニューオーバーレイ -->
     <div class="mobile-menu-overlay" :class="{ active: isMenuOpen }" @click="closeMenu"></div>
 
-    <!-- ヒーローセクション(中央配置) -->
+<!-- ヒーローセクション(中央配置) - ここまでで800px -->
     <div class="hero-section">
       <!-- メインビジュアル -->
       <div class="main-visual">
@@ -37,28 +37,28 @@
         <h2 class="venue-name">熊本えがお健康スタジアム</h2>
         <h3 class="page-title">アクセス方法のご案内</h3>
       </section>
-
-      <!-- 説明文 -->
-      <section class="description">
-        <p>
-         <span class="sp">back number "Grateful Yesterdays Tour 2026" <span class="tab step">開催時の熊本えがお健康スタジアムへのアクセス方法をご案内いたします。</span></span>
-          <br />
-          各所のシャトルバス・各地からのツアーバス・電車・駐車場・徒歩でのルートなど、<span class="tab step">来場に便利な手段をご確認ください。</span>
-        </p>
-      </section>
     </div>
+
+    <!-- 説明文 - hero-sectionの外に移動 -->
+    <section class="description">
+      <p>
+        <span class="sp">back number "Grateful Yesterdays Tour 2026" <span class="tab step">開催時の熊本えがお健康スタジアムへのアクセス方法をご案内いたします。</span></span>
+        <br />
+        各所のシャトルバス・各地からのツアーバス・電車・駐車場・徒歩でのルートなど、<span class="tab step">来場に便利な手段をご確認ください。</span>
+      </p>
+    </section>
 
     <div class="content-wrapper">
       <!-- ナビゲーション付きの注意事項ラッパー -->
       <div class="notes-with-nav" id="notes-nav-wrapper">
-        <nav class="fixed-navigation" :class="{ 'mobile-open': isMenuOpen }">
-          <div class="nav-logo" @click="scrollToTop" style="cursor: pointer">
-            <h1>ACCESS</h1>
-          </div>
-          <ul class="nav-menu">
-            <li :class="{ active: activeSection === 'notes' }">
-              <a href="#notes" @click.prevent="handleNavClick('notes')">注意事項</a>
-            </li>
+<nav class="fixed-navigation" :class="{ 'mobile-open': isMenuOpen }">
+  <div class="nav-logo" @click="scrollToTop" style="cursor: pointer">
+    <img src="/images/logo-text.png" alt="ACCESS" class="nav-logo-image" />
+  </div>
+  <ul class="nav-menu">
+    <li :class="{ active: activeSection === 'notes' }">
+      <a href="#notes" @click.prevent="handleNavClick('notes')">注意事項</a>
+    </li>
             <li :class="{ active: activeSection === 'map' }">
               <a href="#map" @click.prevent="handleNavClick('map')">アクセスマップ</a>
             </li>
@@ -864,6 +864,7 @@ const setupScrollAnimation = () => {
 
 onMounted(() => {
   window.addEventListener("scroll", updateActiveSection);
+  window.addEventListener("resize", handleResize); // この行を追加
   updateActiveSection();
 
   setTimeout(() => {
@@ -893,8 +894,42 @@ onMounted(() => {
 
 onUnmounted(() => {
   window.removeEventListener("scroll", updateActiveSection);
-  document.body.style.overflow = ''; // クリーンアップ
+  window.removeEventListener("resize", handleResize); // この行を追加
+  document.body.style.overflow = '';
 });
+
+// この関数を修正
+const handleResize = () => {
+  if (window.innerWidth > 860 && isMenuOpen.value) {
+    const navigation = document.querySelector(".fixed-navigation");
+    const notesSection = document.getElementById("notes");
+    
+    // メニューを閉じる
+    closeMenu();
+    
+    // closeMenu後、少し待ってから判定（DOMが安定してから）
+    setTimeout(() => {
+      if (notesSection && navigation) {
+        const rect = notesSection.getBoundingClientRect();
+        
+        // 一時的にトランジションを無効化
+        navigation.style.transition = 'none';
+        
+        // notesセクションが画面内に入っている、または通り過ぎている場合
+        if (rect.top < window.innerHeight - 150) {
+          navigation.classList.add("is-visible");
+        } else {
+          navigation.classList.remove("is-visible");
+        }
+        
+        // 次のフレームでトランジションを再度有効化
+        requestAnimationFrame(() => {
+          navigation.style.transition = '';
+        });
+      }
+    }, 50); // 50ms待つ
+  }
+};
 </script>
 
 <style scoped>
@@ -919,7 +954,7 @@ onUnmounted(() => {
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  background: #333;
+  background: #000;
   border: none;
   cursor: pointer;
   flex-direction: column;
@@ -972,12 +1007,23 @@ onUnmounted(() => {
   pointer-events: auto;
 }
 
-/* ヒーローセクション - 中央配置 */
 .hero-section {
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 40px 20px 0;
+  padding: 40px 20px;
+  height: min(100vh, 800px); /* この書き方の方が明確 */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* descriptionはhero-sectionの外なので、通常のセクションとして */
+.description {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 40px 20px 60px;
+  text-align: center;
 }
 
 .main-visual {
@@ -985,13 +1031,11 @@ onUnmounted(() => {
   text-align: center;
   padding: 0 0 40px;
 }
-
 .main-visual img {
-  max-width: 380px;
+  max-width: clamp(150px, 45vh, 400px);
   width: 100%;
   height: auto;
 }
-
 .event-info {
   text-align: center;
   line-height: 1;
@@ -1032,12 +1076,6 @@ onUnmounted(() => {
   letter-spacing: 0.1em;
 }
 
-.description {
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: 40px 20px 60px;
-  text-align: center;
-}
 
 .description p {
   line-height: 1.8;
@@ -1065,7 +1103,7 @@ onUnmounted(() => {
   position: sticky;
   top: 50px;
   width: 190px;
-  background: #fff;
+  background: #000; /* #fff から #333 に変更 */
   border-radius: 16px;
   padding: 20px 0 20px 20px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
@@ -1080,17 +1118,26 @@ onUnmounted(() => {
 }
 
 .nav-logo {
-  background: #333;
+  background: #000; /* #333 から #000 に変更（より濃い黒） */
   margin: -20px 0px 10px -20px;
   padding: 10px 20px;
   border-radius: 16px 16px 0 0;
 }
 
-.nav-logo h1 {
-  font-size: 24px;
-  font-weight: bold;
-  color: #fff;
-  margin: 0;
+.nav-logo {
+  background: #000;
+  margin: -20px 0px 10px -20px;
+  padding: 20px 20px 10px;
+  border-radius: 16px 16px 0 0;
+  text-align: center; /* 画像を中央揃え */
+}
+
+.nav-logo-image {
+  width: 100%;
+  max-width: 120px; /* 適切なサイズに調整 */
+  height: auto;
+  display: block;
+  margin: 0 auto;
 }
 
 .nav-menu {
@@ -1118,7 +1165,7 @@ onUnmounted(() => {
   transform: translateY(-50%);
   opacity: 0;
   transition: opacity 0.3s;
-  color: #333;
+  color: #fff; /* #333 から #fff に変更 */
   font-size: 24px;
   line-height: 1;
 }
@@ -1134,7 +1181,7 @@ onUnmounted(() => {
 
 .nav-menu a {
   display: block;
-  color: #333;
+  color: #fff; /* #333 から #fff に変更 */
   text-decoration: none;
   font-size: 14px;
   font-weight: bold;
@@ -1186,7 +1233,6 @@ onUnmounted(() => {
   line-height: 1;
   margin-bottom: 60px;
   text-align: center;
-  white-space: nowrap;
 }
 
 .content-section .section-intro {
@@ -1697,18 +1743,37 @@ onUnmounted(() => {
   .tab{
     display: block;
   }
+  
+    .nav-logo {
+    margin: -80px -20px 20px -20px;
+    border-radius: 0;
+    padding: 20px;
+    text-align: center;
+  }
+
+  .nav-logo-image {
+    max-width: 160px; /* タブレット用のサイズ */
+    margin: 0 20px;
+  }
 }
 
 
 /* スマホ - 480px以下 */
 @media (max-width: 480px) {
   /* ヒーローセクション */
-  .hero-section {
-    padding: 30px 5% 0;
-    min-height: 100vh; /* 画面の高さ100% */
-    display: flex;
-    flex-direction: column;
-    justify-content: center; /* 中央揃え */
+.hero-section {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  height: min(100vh, 800px); /* この書き方の方が明確 */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+  .description {
+    padding: 30px 15px 40px;
   }
 
   .main-visual {
@@ -1745,8 +1810,19 @@ onUnmounted(() => {
     font-size: 24px;
   }
 
-  .description {
-    padding: 30px 15px 40px;
+   .nav-logo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 0;
+    border-radius: 0;
+    padding: 20px;
+    width: 100%;
+    text-align: center;
+  }
+
+  .nav-logo-image {
+    max-width: 150px; /* スマホではやや大きめ */
   }
 
   .description p {
@@ -1761,7 +1837,7 @@ onUnmounted(() => {
   }
 
   .content-section h2 {
-    font-size: 24px;
+    font-size: 22px;
     margin-bottom: 30px;
   }
 
@@ -1900,7 +1976,7 @@ onUnmounted(() => {
   .nav-menu {
     padding-left: 0;
     text-align: center; /* 中央揃え */
-    margin-top: 20px; /* ロゴの下にスペース */
+    margin-top: 65px; /* ロゴの下にスペース */
   }
   
   .nav-menu a {
