@@ -1,5 +1,9 @@
 <template>
   <div class="access-page">
+      <!-- ローディングオーバーレイ -->
+  <div class="loading-overlay" :class="{ active: isLoading }">
+    <img src="/images/logo-text-black.png" alt="Loading" class="loading-logo" />
+  </div>
     <!-- ハンバーガーメニューボタン (860px以下で表示) -->
     <button 
       class="hamburger-button" 
@@ -25,10 +29,8 @@
       <!-- イベント情報 -->
       <section class="event-info">
         <h1 class="event-date">
-          2026.6.27
-          <span class="day">SAT</span>
-          & 6.28
-          <span class="day">SUN</span>
+          2026.6.27<span class="day">[SAT]</span>
+          & 6.28<span class="day">[SUN]</span>
         </h1>
         <p class="event-time">
           open.14:30 / start.17:00 / fin.19:15
@@ -656,6 +658,8 @@ import { ref, onMounted, onUnmounted } from "vue";
 const activeSection = ref("notes");
 const isTransitioning = ref(false);
 const isMenuOpen = ref(false);
+const isLoading = ref(true); // 追加
+
 
 const openAreas = ref({
   hakata: false,
@@ -697,11 +701,6 @@ const closeMenu = () => {
   document.body.style.overflow = '';
 };
 
-const handleNavClick = (id) => {
-  scrollTo(id);
-  closeMenu(); // メニューを閉じる
-};
-
 const toggleFaq = (faq) => {
   Object.keys(openFaqs.value).forEach(key => {
     if (key !== faq) {
@@ -715,19 +714,42 @@ const toggleArea = (area) => {
   openAreas.value[area] = !openAreas.value[area];
 };
 
+const handleNavClick = (id) => {
+  const overlay = document.querySelector('.loading-overlay');
+  
+  // fade-outクラスを削除してロゴを表示可能な状態に
+  if (overlay) {
+    overlay.classList.remove('fade-out');
+  }
+  
+  isLoading.value = true;
+  closeMenu();
+  
+  // ローディングが表示されてからスクロール実行
+  setTimeout(() => {
+    scrollTo(id);
+  }, 300);
+};
+
 const scrollTo = async (id) => {
   if (isTransitioning.value) return;
 
   isTransitioning.value = true;
   const mainContent = document.querySelector(".main-content");
+  const overlay = document.querySelector('.loading-overlay');
+  const accessPage = document.querySelector('.access-page');
 
   if (!mainContent) {
     isTransitioning.value = false;
+    isLoading.value = false;
     return;
   }
 
-  mainContent.style.opacity = "0";
-  await new Promise((resolve) => setTimeout(resolve, 300));
+  // メインコンテンツをふわっと消す
+  if (accessPage) {
+    accessPage.classList.remove('loaded');
+  }
+  await new Promise((resolve) => setTimeout(resolve, 400));
 
   const element = document.getElementById(id);
   if (element) {
@@ -742,10 +764,25 @@ const scrollTo = async (id) => {
   }
 
   await new Promise((resolve) => setTimeout(resolve, 100));
-  mainContent.style.opacity = "1";
   activeSection.value = id;
 
-  await new Promise((resolve) => setTimeout(resolve, 300));
+  // fade-outクラスを追加してロゴをふわっと消す
+  if (overlay) {
+    overlay.classList.add('fade-out');
+  }
+  
+  // ロゴが消えた後、背景を消してメインコンテンツを表示
+  setTimeout(() => {
+    isLoading.value = false;
+    if (accessPage) {
+      accessPage.classList.add('loaded');
+    }
+    // 次回のために fade-out を削除
+    if (overlay) {
+      overlay.classList.remove('fade-out');
+    }
+  }, 500);
+  
   isTransitioning.value = false;
 };
 
@@ -753,15 +790,16 @@ const scrollToTop = async () => {
   if (isTransitioning.value) return;
 
   isTransitioning.value = true;
-  const mainContent = document.querySelector(".main-content");
+  isLoading.value = true;
+  
+  const overlay = document.querySelector('.loading-overlay');
+  const accessPage = document.querySelector('.access-page');
 
-  if (!mainContent) {
-    isTransitioning.value = false;
-    return;
+  // メインコンテンツをふわっと消す
+  if (accessPage) {
+    accessPage.classList.remove('loaded');
   }
-
-  mainContent.style.opacity = "0";
-  await new Promise((resolve) => setTimeout(resolve, 300));
+  await new Promise((resolve) => setTimeout(resolve, 400));
 
   window.scrollTo({
     top: 0,
@@ -769,10 +807,25 @@ const scrollToTop = async () => {
   });
 
   await new Promise((resolve) => setTimeout(resolve, 100));
-  mainContent.style.opacity = "1";
   activeSection.value = "notes";
 
-  await new Promise((resolve) => setTimeout(resolve, 300));
+  // fade-outクラスを追加してロゴをふわっと消す
+  if (overlay) {
+    overlay.classList.add('fade-out');
+  }
+  
+  // ロゴが消えた後、背景を消してメインコンテンツを表示
+  setTimeout(() => {
+    isLoading.value = false;
+    if (accessPage) {
+      accessPage.classList.add('loaded');
+    }
+    // 次回のために fade-out を削除
+    if (overlay) {
+      overlay.classList.remove('fade-out');
+    }
+  }, 500);
+  
   isTransitioning.value = false;
 };
 
@@ -864,9 +917,21 @@ const setupScrollAnimation = () => {
 
 onMounted(() => {
   window.addEventListener("scroll", updateActiveSection);
-  window.addEventListener("resize", handleResize); // この行を追加
+  window.addEventListener("resize", handleResize);
   updateActiveSection();
 
+  // 画像の読み込みを待つ
+  const logoImg = document.querySelector('.loading-logo');
+  if (logoImg && !logoImg.complete) {
+    logoImg.onload = () => {
+      startPageLoad();
+    };
+  } else {
+    startPageLoad();
+  }
+});
+
+const startPageLoad = () => {
   setTimeout(() => {
     setupScrollAnimation();
 
@@ -889,8 +954,27 @@ onMounted(() => {
         section.classList.add("is-visible");
       }
     });
+    
+    // ページ読み込み完了後、ローディングを非表示
+    setTimeout(() => {
+      const overlay = document.querySelector('.loading-overlay');
+      const accessPage = document.querySelector('.access-page');
+      
+      // fade-outクラスを追加してロゴをふわっと消す
+      if (overlay) {
+        overlay.classList.add('fade-out');
+      }
+      
+      // ロゴが消えた後、背景を消してメインコンテンツを表示
+      setTimeout(() => {
+        isLoading.value = false;
+        if (accessPage) {
+          accessPage.classList.add('loaded');
+        }
+      }, 500);
+    }, 300);
   }, 100);
-});
+};
 
 onUnmounted(() => {
   window.removeEventListener("scroll", updateActiveSection);
@@ -944,12 +1028,83 @@ const handleResize = () => {
   font-style: normal;
 }
 
+.loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.6s ease;
+}
+
+.loading-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.loading-logo {
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  opacity: 0;
+  transform: scale(0.95);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.loading-overlay.active .loading-logo {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.loading-overlay.fade-out .loading-logo {
+  opacity: 0;
+  transform: scale(0.95);
+}
+
+@keyframes fadeInOut {
+  0% {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@media (max-width: 480px) {
+  .loading-logo {
+    max-width: 200px;
+  }
+}
+
+/* メインコンテンツの初期状態 */
+.access-page > *:not(.loading-overlay):not(.hamburger-button):not(.mobile-menu-overlay) {
+  opacity: 0;
+  transition: opacity 0.8s ease 0.3s;
+}
+
+.access-page.loaded > *:not(.loading-overlay):not(.hamburger-button):not(.mobile-menu-overlay) {
+  opacity: 1;
+}
+
 /* ハンバーガーメニューボタン */
 .hamburger-button {
   display: none;
   position: fixed;
-  top: 13px;
-  right: 15px; /* left: 20px; から変更 */
+  top: 5px;
+  right: 10px; /* left: 20px; から変更 */
   z-index: 2000;
   width: 50px;
   height: 50px;
@@ -1032,7 +1187,7 @@ const handleResize = () => {
   padding: 0 0 40px;
 }
 .main-visual img {
-  max-width: clamp(150px, 45vh, 400px);
+  max-width: clamp(150px, 50vh, 400px);
   width: 100%;
   height: auto;
 }
@@ -1042,20 +1197,20 @@ const handleResize = () => {
 }
 
 .event-date {
-  font-size: 40px;
+  font-size: 36px;
   font-weight: bold;
   letter-spacing: 2px;
 }
 
 .day {
-  font-size: 28px;
+  font-size: 23px;
   margin-left: 5px;
 }
 
 .event-time {
   font-size: 24px;
   font-weight: bold;
-  margin: 15px 0;
+  margin: 15px 0 20px;
   color: #333;
 }
 
@@ -1064,14 +1219,14 @@ const handleResize = () => {
 }
 
 .venue-name {
-  font-size: 40px;
+  font-size: 36px;
   font-weight: bold;
   letter-spacing: 1px;
   margin-bottom: 20px;
 }
 
 .page-title {
-  font-size: 40px;
+  font-size: 32px;
   font-weight: bold;
   letter-spacing: 0.1em;
 }
@@ -1747,13 +1902,13 @@ const handleResize = () => {
     .nav-logo {
     margin: -80px -20px 20px -20px;
     border-radius: 0;
-    padding: 20px;
+    padding: 40px 20px 20px;
     text-align: center;
   }
 
   .nav-logo-image {
     max-width: 160px; /* タブレット用のサイズ */
-    margin: 0 20px;
+    margin: 0 auto;
   }
 }
 
@@ -1789,13 +1944,13 @@ const handleResize = () => {
   }
 
   .day {
-    font-size: 20px;
+    font-size: 16px;
     margin-left: 0px;
   }
 
   .event-time {
     font-size: 16px;
-    margin: 20px 0;
+    margin: 15px 0 20px;
   }
 
   .small {
@@ -1807,7 +1962,7 @@ const handleResize = () => {
   }
 
   .page-title {
-    font-size: 24px;
+    font-size: 20px;
   }
 
    .nav-logo {
@@ -1969,18 +2124,18 @@ const handleResize = () => {
     left: 0;
     margin: 0;
     border-radius: 0;
-    padding: 20px;
+    padding: 35px 20px;
     width: 100%; /* auto から 100% に変更 */
   }
 
   .nav-menu {
     padding-left: 0;
     text-align: center; /* 中央揃え */
-    margin-top: 65px; /* ロゴの下にスペース */
+    margin-top: 85px; /* ロゴの下にスペース */
   }
   
   .nav-menu a {
-    padding: 18px 0;
+    padding: 16px 0;
   }
 
   .nav-menu li {
