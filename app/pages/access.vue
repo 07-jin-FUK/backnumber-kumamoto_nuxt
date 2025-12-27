@@ -46,7 +46,7 @@
       <p>
         <span class="sp">back number "Grateful Yesterdays Tour 2026" <span class="tab step">開催時の熊本えがお健康スタジアムへのアクセス方法をご案内いたします。</span></span>
         <br />
-        各所のシャトルバス・各地からのツアーバス・電車・駐車場・徒歩でのルートなど、<span class="tab step">来場に便利な手段をご確認ください。</span>
+        各所のシャトルバス・各地からのツアーバス・電車・パーク&バスライド・徒歩でのルートなど、<span class="tab step">来場に便利な手段をご確認ください。</span>
       </p>
     </section>
 
@@ -173,7 +173,7 @@
                   <tbody>
                     <tr>
                       <th>発車バス停</th>
-                      <td>①熊本桜町バスターミナル　<span class="sp tab block">②熊本県庁　</span><span class="sp tab">③芦陽才並木公園さんさん</span></td>
+                      <td>①熊本桜町バスターミナル　<span class="sp tab block">②熊本県庁　</span><span class="sp tab">③菊陽杉並木公園さんさん</span></td>
                     </tr>
                     <tr>
                       <th>所要時間</th>
@@ -205,7 +205,7 @@
               <div class="route-description">
                 <p>公演当日お車でお越しの場合は、下記の通り、熊本えがお健康スタジアムまでのパーク&バスライドを運行いたします。</p>
                 <p>なお、当日券の販売はございませんので、ご利用の際は必ず事前にチケットをご購入ください。</p>
-                <p>※自家用車でお越しのお客様は、パーク&バスライドのご利用が便利です。</p>
+                <p>※自家用車でお越しのお客様は、パーク&バスライドのご利用が便利です。※会場には駐車場はございません。</p>
                 <p>パーク&バスライドの発売詳細につきましては、決まり次第、当サイトにてご案内させていただきます。</p>
               </div>
 
@@ -501,8 +501,8 @@
                     <table class="info-table">
                       <tbody>
                         <tr>
-                          <th>発着駅</th>
-                          <td>熊本空港</td>
+                          <th>乗車所</th>
+                          <td>熊本空港<br>※会場までの往路のみの運行となります。熊本空港への戻り便はありません。</td>
                         </tr>
                         <tr>
                           <th>所要時間</th>
@@ -532,7 +532,7 @@
                 <img src="/images/park-map.jpg" alt="駐車場マップ" />
               </div>
               <div class="route-description">
-                <p>ツアーバス、パーク&バスライド、シャトルバス、タクシーご利用でご来場のお客様の乗降所は下記になります。</p>
+                <p>ツアーバス、パーク&バスライド、シャトルバス、タクシーご利用でご来場のお客様の乗降所は上記になります。</p>
               </div>
 
               <div class="notice-box">
@@ -1178,7 +1178,7 @@ const handleResize = () => {
 
 /* descriptionはhero-sectionの外なので、通常のセクションとして */
 .description {
-  max-width: 1000px;
+  max-width: 1280px;
   margin: 0 auto;
   padding: 40px 20px 60px;
   text-align: center;
@@ -1809,7 +1809,7 @@ const handleResize = () => {
 }
 }
 
-@media (min-width: 861px) and (max-width: 1000px) {
+@media (min-width: 861px) and (max-width: 1050px) {
    .step{
     display: block;
 }
