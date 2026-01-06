@@ -100,6 +100,9 @@
                 安全でスムーズなご来場のため、<span class="sp step">
                 <span class="text-red">必ず事前にご確認</span>
                 をお願いいたします。</span>
+                <span class="sp-none"><br></span>
+                <span class="text-red">自家用車でのご来場は一切できません。<br>
+また会場周辺は当日交通規制が入り、<span class="sp step">送迎車の立ち入りもできなくなります。</span></span>
               </strong>
             </p>
 
@@ -2067,6 +2070,11 @@ const handleResize = () => {
   transition: transform 0.3s;
   color: #666;
   transform: translateY(-7px); 
+}
+
+
+.sp-none{
+ display: none;   
 }
 
 .toggle-icon.active {
