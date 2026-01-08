@@ -180,11 +180,11 @@
                     </tr>
                     <tr>
                       <th>所要時間</th>
-                      <td>①約50分　②約35分　③約20分</td>
+                      <td>①約 50 分　②約 35 分　③約 20 分</td>
                     </tr>
                     <tr>
                       <th>料金</th>
-                      <td>決まり次第ご案内いたします</td>
+                      <td>①往復券 7,000 円、往路券 3,800 円、復路券 3,800 円<br>②往復券 5,000 円、往路券 2,800 円、復路券 2,800 円<br>③往復券 4,000 円、往路券 2,300 円、復路券 2,300 円</td>
                     </tr>
                     <tr>
                       <th>運行時間</th>
@@ -196,7 +196,7 @@
 
               <div class="notice-box">
                 <h4>注意事項</h4>
-                <p>※片道券での販売となります。往復必要な方は往路券、復路券それぞれご購入ください。<br>※乗降場所などの詳細情報及びその他注意事項につきましては後日公開の販売ページにてご案内させていただきます。</p>
+                <p>※乗降場所などの詳細情報及びその他注意事項につきましては後日公開の販売ページにてご案内させていただきます。</p>
               </div>
             </div>
           </section>
@@ -229,7 +229,7 @@
                     </tr>
                     <tr>
                       <th>料金</th>
-                      <td>決まり次第ご案内いたします</td>
+                      <td>9,500 円<span class="sp tab block">※車両 1 台分の駐車料金＋乗車人数分のシャトルバス代込み</span></td>
                     </tr>
                     <tr>
                       <th>運行時間</th>
@@ -265,67 +265,9 @@
 
               <!-- 各エリアの詳細 -->
               <div class="tour-bus-details">
-                <div class="area-detail">
-                  <div class="area-header" @click="toggleArea('hakata')">
-                    <h3 class="area-title">博多駅</h3>
-                    <span class="toggle-icon" :class="{ active: openAreas.hakata }">▼</span>
-                  </div>
-                  <div class="area-content" :class="{ open: openAreas.hakata }">
-                    <table class="info-table">
-                      <tbody>
-                        <tr>
-                          <th>発着駅</th>
-                          <td>博多駅</td>
-                        </tr>
-                        <tr>
-                          <th>所要時間</th>
-                          <td>決まり次第ご案内いたします</td>
-                        </tr>
-                        <tr>
-                          <th>料金(往復)</th>
-                          <td>決まり次第ご案内いたします</td>
-                        </tr>
-                        <tr>
-                          <th>運行時間</th>
-                          <td>決まり次第ご案内いたします</td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-
-                <div class="area-detail">
-                  <div class="area-header" @click="toggleArea('kokura')">
-                    <h3 class="area-title">小倉駅</h3>
-                    <span class="toggle-icon" :class="{ active: openAreas.kokura }">▼</span>
-                  </div>
-                  <div class="area-content" :class="{ open: openAreas.kokura }">
-                    <table class="info-table">
-                      <tbody>
-                        <tr>
-                          <th>発着駅</th>
-                          <td>小倉駅</td>
-                        </tr>
-                        <tr>
-                          <th>所要時間</th>
-                          <td>決まり次第ご案内いたします</td>
-                        </tr>
-                        <tr>
-                          <th>料金(往復)</th>
-                          <td>決まり次第ご案内いたします</td>
-                        </tr>
-                        <tr>
-                          <th>運行時間</th>
-                          <td>決まり次第ご案内いたします</td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-
-                <div class="area-detail">
+                                <div class="area-detail">
                   <div class="area-header" @click="toggleArea('kumamoto')">
-                    <h3 class="area-title">熊本駅</h3>
+                    <h3 class="area-title">「JR 熊本駅」</h3>
                     <span class="toggle-icon" :class="{ active: openAreas.kumamoto }">▼</span>
                   </div>
                   <div class="area-content" :class="{ open: openAreas.kumamoto }">
@@ -337,169 +279,30 @@
                         </tr>
                         <tr>
                           <th>所要時間</th>
-                          <td>決まり次第ご案内いたします</td>
+                          <td>40 分〜 50 分</td>
                         </tr>
                         <tr>
                           <th>料金(往復)</th>
-                          <td>決まり次第ご案内いたします</td>
+                          <td> 円</td>
                         </tr>
                         <tr>
-                          <th>運行時間</th>
-                          <td>決まり次第ご案内いたします</td>
+                          <th>往路運行時間</th>
+                          <td>午前便熊本駅出発 時 分/会場着 時ごろ<br>
+昼便熊本駅出発 時 分/会場着 時ごろ<br>
+午後便熊本駅出発 時 分/会場着 時ごろ</td>
+                        </tr>
+                                                <tr>
+                          <th>復路運行時間</th>
+                          <td>会場出発 20 時〜20 時 45 分/熊本駅着 21 時〜21 時 45 分ごろ</td>
                         </tr>
                       </tbody>
                     </table>
                   </div>
                 </div>
-
-                <div class="area-detail">
-                  <div class="area-header" @click="toggleArea('saga')">
-                    <h3 class="area-title">佐賀駅</h3>
-                    <span class="toggle-icon" :class="{ active: openAreas.saga }">▼</span>
-                  </div>
-                  <div class="area-content" :class="{ open: openAreas.saga }">
-                    <table class="info-table">
-                      <tbody>
-                        <tr>
-                          <th>発着駅</th>
-                          <td>佐賀駅</td>
-                        </tr>
-                        <tr>
-                          <th>所要時間</th>
-                          <td>決まり次第ご案内いたします</td>
-                        </tr>
-                        <tr>
-                          <th>料金(往復)</th>
-                          <td>決まり次第ご案内いたします</td>
-                        </tr>
-                        <tr>
-                          <th>運行時間</th>
-                          <td>決まり次第ご案内いたします</td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-
-                <div class="area-detail">
-                  <div class="area-header" @click="toggleArea('nagasaki')">
-                    <h3 class="area-title">長崎駅</h3>
-                    <span class="toggle-icon" :class="{ active: openAreas.nagasaki }">▼</span>
-                  </div>
-                  <div class="area-content" :class="{ open: openAreas.nagasaki }">
-                    <table class="info-table">
-                      <tbody>
-                        <tr>
-                          <th>発着駅</th>
-                          <td>長崎駅</td>
-                        </tr>
-                        <tr>
-                          <th>所要時間</th>
-                          <td>決まり次第ご案内いたします</td>
-                        </tr>
-                        <tr>
-                          <th>料金(往復)</th>
-                          <td>決まり次第ご案内いたします</td>
-                        </tr>
-                        <tr>
-                          <th>運行時間</th>
-                          <td>決まり次第ご案内いたします</td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-
-                <div class="area-detail">
-                  <div class="area-header" @click="toggleArea('oita')">
-                    <h3 class="area-title">大分駅</h3>
-                    <span class="toggle-icon" :class="{ active: openAreas.oita }">▼</span>
-                  </div>
-                  <div class="area-content" :class="{ open: openAreas.oita }">
-                    <table class="info-table">
-                      <tbody>
-                        <tr>
-                          <th>発着駅</th>
-                          <td>大分駅</td>
-                        </tr>
-                        <tr>
-                          <th>所要時間</th>
-                          <td>決まり次第ご案内いたします</td>
-                        </tr>
-                        <tr>
-                          <th>料金(往復)</th>
-                          <td>決まり次第ご案内いたします</td>
-                        </tr>
-                        <tr>
-                          <th>運行時間</th>
-                          <td>決まり次第ご案内いたします</td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-
-                <div class="area-detail">
-                  <div class="area-header" @click="toggleArea('miyazaki')">
-                    <h3 class="area-title">宮崎駅</h3>
-                    <span class="toggle-icon" :class="{ active: openAreas.miyazaki }">▼</span>
-                  </div>
-                  <div class="area-content" :class="{ open: openAreas.miyazaki }">
-                    <table class="info-table">
-                      <tbody>
-                        <tr>
-                          <th>発着駅</th>
-                          <td>宮崎駅</td>
-                        </tr>
-                        <tr>
-                          <th>所要時間</th>
-                          <td>決まり次第ご案内いたします</td>
-                        </tr>
-                        <tr>
-                          <th>料金(往復)</th>
-                          <td>決まり次第ご案内いたします</td>
-                        </tr>
-                        <tr>
-                          <th>運行時間</th>
-                          <td>決まり次第ご案内いたします</td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-
-                <div class="area-detail">
-                  <div class="area-header" @click="toggleArea('kagoshima')">
-                    <h3 class="area-title">鹿児島中央駅</h3>
-                    <span class="toggle-icon" :class="{ active: openAreas.kagoshima }">▼</span>
-                  </div>
-                  <div class="area-content" :class="{ open: openAreas.kagoshima }">
-                    <table class="info-table">
-                      <tbody>
-                        <tr>
-                          <th>発着駅</th>
-                          <td>鹿児島中央駅</td>
-                        </tr>
-                        <tr>
-                          <th>所要時間</th>
-                          <td>決まり次第ご案内いたします</td>
-                        </tr>
-                        <tr>
-                          <th>料金(往復)</th>
-                          <td>決まり次第ご案内いたします</td>
-                        </tr>
-                        <tr>
-                          <th>運行時間</th>
-                          <td>決まり次第ご案内いたします</td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-
+                
                 <div class="area-detail">
                   <div class="area-header" @click="toggleArea('airport')">
-                    <h3 class="area-title">熊本空港(往路のみ)</h3>
+                    <h3 class="area-title">「熊本空港」※往路のみ</h3>
                     <span class="toggle-icon" :class="{ active: openAreas.airport }">▼</span>
                   </div>
                   <div class="area-content" :class="{ open: openAreas.airport }">
@@ -511,21 +314,266 @@
                         </tr>
                         <tr>
                           <th>所要時間</th>
-                          <td>決まり次第ご案内いたします</td>
+                          <td>20 分〜 30 分</td>
                         </tr>
                         <tr>
-                          <th>料金(往復)</th>
-                          <td>決まり次第ご案内いたします</td>
+                          <th>料金(往路のみ)</th>
+                          <td> 円</td>
                         </tr>
                         <tr>
-                          <th>運行時間</th>
-                          <td>決まり次第ご案内いたします</td>
+                          <th>往路運行時間</th>
+                          <td>午前便熊本空港出発 時 分/会場着 時ごろ<br>
+昼便熊本空港出発 時 分/会場着 時ごろ<br>
+午後便熊本空港出発 時 分/会場着 時ごろ</td>
+                        </tr>
+                                                <tr>
+                          <th>復路運行時間</th>
+                          <td>運行無し</td>
                         </tr>
                       </tbody>
                     </table>
                   </div>
                 </div>
+                
+                
+                <div class="area-detail">
+                  <div class="area-header" @click="toggleArea('hakata')">
+                    <h3 class="area-title">「JR 博多駅」※途中 SA 休憩あり</h3>
+                    <span class="toggle-icon" :class="{ active: openAreas.hakata }">▼</span>
+                  </div>
+                  <div class="area-content" :class="{ open: openAreas.hakata }">
+                    <table class="info-table">
+                      <tbody>
+                        <tr>
+                          <th>発着駅</th>
+                          <td>博多駅</td>
+                        </tr>
+                        <tr>
+                          <th>所要時間</th>
+                          <td>90 分〜 120 分</td>
+                        </tr>
+                        <tr>
+                          <th>料金(往復)</th>
+                          <td>7,500 円</td>
+                        </tr>
+                        <tr>
+                          <th>往路運行時間</th>
+                          <td>博多駅出発 12 時 30 分/会場着 15 時ごろ</td>
+                        </tr>
+                                                <tr>
+                          <th>復路運行時間</th>
+                          <td>会場出発 20 時〜20 時 45 分/博多駅着 22 時〜22 時 45 分ごろ</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+
+                <div class="area-detail">
+                  <div class="area-header" @click="toggleArea('kokura')">
+                    <h3 class="area-title">「JR 小倉駅」※途中 SA 休憩あり</h3>
+                    <span class="toggle-icon" :class="{ active: openAreas.kokura }">▼</span>
+                  </div>
+                  <div class="area-content" :class="{ open: openAreas.kokura }">
+                    <table class="info-table">
+                      <tbody>
+                        <tr>
+                          <th>発着駅</th>
+                          <td>小倉駅</td>
+                        </tr>
+                        <tr>
+                          <th>所要時間</th>
+                          <td>100 分〜 130 分</td>
+                        </tr>
+                        <tr>
+                          <th>料金(往復)</th>
+                          <td>8,500 円</td>
+                        </tr>
+                        <tr>
+                          <th>往路運行時間</th>
+                          <td>小倉駅出発 12 時 30 分/会場着 15 時ごろ</td>
+                        </tr>
+                                                <tr>
+                          <th>復路運行時間</th>
+                          <td>会場出発 20 時〜20 時 45 分/小倉駅着 22 時〜22 時 45 分ごろ</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+
+                <div class="area-detail">
+                  <div class="area-header" @click="toggleArea('saga')">
+                    <h3 class="area-title">「JR 佐賀駅」※途中 SA 休憩あり</h3>
+                    <span class="toggle-icon" :class="{ active: openAreas.saga }">▼</span>
+                  </div>
+                  <div class="area-content" :class="{ open: openAreas.saga }">
+                    <table class="info-table">
+                      <tbody>
+                        <tr>
+                          <th>発着駅</th>
+                          <td>佐賀駅</td>
+                        </tr>
+                        <tr>
+                          <th>所要時間</th>
+                          <td>90 分〜 120 分</td>
+                        </tr>
+                        <tr>
+                          <th>料金(往復)</th>
+                          <td>7,000 円</td>
+                        </tr>
+                        <tr>
+                          <th>往路運行時間</th>
+                          <td>佐賀駅出発 12 時 30 分/会場着 15 時ごろ</td>
+                        </tr>
+                                                <tr>
+                          <th>復路運行時間</th>
+                          <td>会場出発 20 時〜20 時 45 分/佐賀駅着 22 時〜22 時 45 分ごろ</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+
+                <div class="area-detail">
+                  <div class="area-header" @click="toggleArea('nagasaki')">
+                    <h3 class="area-title">「JR ⻑崎駅」※途中 SA 休憩あり</h3>
+                    <span class="toggle-icon" :class="{ active: openAreas.nagasaki }">▼</span>
+                  </div>
+                  <div class="area-content" :class="{ open: openAreas.nagasaki }">
+                    <table class="info-table">
+                      <tbody>
+                        <tr>
+                          <th>発着駅</th>
+                          <td>長崎駅</td>
+                        </tr>
+                        <tr>
+                          <th>所要時間</th>
+                          <td>150 分〜 180 分</td>
+                        </tr>
+                        <tr>
+                          <th>料金(往復)</th>
+                          <td>9,500 円</td>
+                        </tr>
+                        <tr>
+                          <th>往路運行時間</th>
+                          <td>長崎駅出発 12 時 00 分/会場着 15 時ごろ</td>
+                        </tr>
+                                                <tr>
+                          <th>復路運行時間</th>
+                          <td>会場出発 20 時〜20 時 45 分/長崎駅着 23 時〜23 時 45 分ごろ</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+
+                <div class="area-detail">
+                  <div class="area-header" @click="toggleArea('oita')">
+                    <h3 class="area-title">「JR 大分駅」※途中 SA 休憩あり</h3>
+                    <span class="toggle-icon" :class="{ active: openAreas.oita }">▼</span>
+                  </div>
+                  <div class="area-content" :class="{ open: openAreas.oita }">
+                    <table class="info-table">
+                      <tbody>
+                        <tr>
+                          <th>発着駅</th>
+                          <td>大分駅</td>
+                        </tr>
+                        <tr>
+                          <th>所要時間</th>
+                          <td>150 分〜 180 分</td>
+                        </tr>
+                        <tr>
+                          <th>料金(往復)</th>
+                          <td>8,000 円</td>
+                        </tr>
+                        <tr>
+                          <th>往路運行時間</th>
+                          <td>大分駅出発 12 時 00 分/会場着 15 時ごろ</td>
+                        </tr>
+                                                <tr>
+                          <th>復路運行時間</th>
+                          <td>会場出発 20 時〜20 時 45 分/大分駅着 23 時〜23 時 45 分ごろ</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+
+                <div class="area-detail">
+                  <div class="area-header" @click="toggleArea('miyazaki')">
+                    <h3 class="area-title">「JR 宮崎駅」※途中 SA 休憩あり</h3>
+                    <span class="toggle-icon" :class="{ active: openAreas.miyazaki }">▼</span>
+                  </div>
+                  <div class="area-content" :class="{ open: openAreas.miyazaki }">
+                    <table class="info-table">
+                      <tbody>
+                        <tr>
+                          <th>発着駅</th>
+                          <td>宮崎駅</td>
+                        </tr>
+                        <tr>
+                          <th>所要時間</th>
+                          <td>150 分〜 180 分</td>
+                        </tr>
+                        <tr>
+                          <th>料金(往復)</th>
+                          <td>10,000 円</td>
+                        </tr>
+                        <tr>
+                          <th>往路運行時間</th>
+                          <td>宮崎駅出発 12 時 00 分/会場着 15 時ごろ</td>
+                        </tr>
+                                                <tr>
+                          <th>復路運行時間</th>
+                          <td>会場出発 20 時〜20 時 45 分/宮崎駅着 23 時〜23 時 45 分ごろ</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+
+                <div class="area-detail">
+                  <div class="area-header" @click="toggleArea('kagoshima')">
+                    <h3 class="area-title">「JR 鹿児島中央駅」<span>※途中 SA 休憩あり</span></h3>
+                    <span class="toggle-icon" :class="{ active: openAreas.kagoshima }">▼</span>
+                  </div>
+                  <div class="area-content" :class="{ open: openAreas.kagoshima }">
+                    <table class="info-table">
+                      <tbody>
+                        <tr>
+                          <th>発着駅</th>
+                          <td>鹿児島中央駅</td>
+                        </tr>
+                        <tr>
+                          <th>所要時間</th>
+                          <td>150 分〜 180 分</td>
+                        </tr>
+                        <tr>
+                          <th>料金(往復)</th>
+                          <td>9,000 円</td>
+                        </tr>
+                        <tr>
+                          <th>往路運行時間</th>
+                          <td>鹿児島中央駅出発 12 時 00 分/会場着 15 時ごろ</td>
+                        </tr>
+                                                <tr>
+                          <th>復路運行時間</th>
+                          <td>会場出発 20 時〜20 時 45 分/鹿児島中央駅着 23 時〜23 時 45 分ごろ</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+
+                
               </div>
+                  <div class="notice-box top-margin">
+      <h4>注意事項</h4>
+      <p>※上記旅行代金はひとりあたりの往復バス金額です。おとな・こども同額となります。</p>
+      <p class="red">※熊本空港のみ往路片道代金となります。</p>
+    </div>
             </div>
           </section>
 
@@ -548,11 +596,18 @@
           </section>
           
           <section id="station" class="content-section">
-  <h2>最寄駅からのアクセス</h2>
+  <h2>最寄駅から徒歩でのアクセス</h2>
 
   <div class="station-info">
     <div class="route-description">
-      <p>公共交通機関をご利用の場合、最寄り駅からのアクセス方法をご案内します。</p>
+      <p>会場への最寄駅は<strong>光の森駅（JR豊肥本線）</strong>となります。光の森から会場までは徒歩50分ほどかかります。<br>交通量が多い道路を通行する場所もございますので、ご注意の上ご来場ください。</p>
+      <p>  光の森駅の時刻表は
+      <a href="https://www.jrkyushu-timetable.jp/cgi-bin/jr-k_time/tt_dep.cgi?c=29563" target="_blank" rel="noopener noreferrer" class="external-link">
+こちらから
+  <svg class="external-icon" width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M11 7.5V11.5C11 11.7652 10.8946 12.0196 10.7071 12.2071C10.5196 12.3946 10.2652 12.5 10 12.5H2.5C2.23478 12.5 1.98043 12.3946 1.79289 12.2071C1.60536 12.0196 1.5 11.7652 1.5 11.5V4C1.5 3.73478 1.60536 3.48043 1.79289 3.29289C1.98043 3.10536 2.23478 3 2.5 3H6.5M9 1.5H12.5M12.5 1.5V5M12.5 1.5L6 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+</a></p>
     </div>
 
     <div class="station-routes">
@@ -1557,6 +1612,7 @@ const handleResize = () => {
   margin: 0;
   padding: 0;
   border: none;
+
 }
 
 .toggle-icon {
@@ -1719,7 +1775,6 @@ const handleResize = () => {
   width: 24px;
   height: 24px;
   flex-shrink: 0;
-  margin-left: 16px;
 }
 
 .toggle-icon svg {
@@ -2184,7 +2239,10 @@ const handleResize = () => {
   }
   
   .area-title{
-    font-size: 18px;
+    font-size: 16px;
+    span{
+       font-size: 14px;
+    }
   }
   
   .tour-bus-details{
@@ -2226,5 +2284,30 @@ const handleResize = () => {
   transform: translateY(6px); /* activeの時はさらに上に */
 }
 
+}
+
+.top-margin{
+    margin-top: 30px;
+}
+
+.red{
+    color: red !important;
+    text-decoration: underline;
+}
+
+.external-link {
+  color: #1976d2;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.external-link:hover {
+  opacity: 0.7;
+}
+
+.external-icon {
+  flex-shrink: 0;
 }
 </style>
