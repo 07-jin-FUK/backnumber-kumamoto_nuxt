@@ -184,7 +184,7 @@
                     </tr>
                     <tr>
                       <th>料金</th>
-                      <td>①往復券 7,000 円、往路券 3,800 円、復路券 3,800 円<br>②往復券 5,000 円、往路券 2,800 円、復路券 2,800 円<br>③往復券 4,000 円、往路券 2,300 円、復路券 2,300 円</td>
+                      <td>①往復券 7,000 円、<span class="sp"><span class="space">　</span>往路券 3,800 円、復路券 3,800 円</span><br>②往復券 5,000 円、<span class="sp"><span class="space">　</span>往路券 2,800 円、復路券 2,800 円</span><br>③往復券 4,000 円、<span class="sp"><span class="space">　</span>往路券 2,300 円、復路券 2,300 円</span></td>
                     </tr>
                     <tr>
                       <th>運行時間</th>
@@ -293,7 +293,7 @@
                         </tr>
                                                 <tr>
                           <th>復路運行時間</th>
-                          <td>会場出発 20 時〜20 時 45 分/熊本駅着 21 時〜21 時 45 分ごろ</td>
+                          <td>会場出発 20 時〜20 時 45 分<span class="sp"><span class="none">/</span>熊本駅着 21 時〜21 時 45 分ごろ</span></td>
                         </tr>
                       </tbody>
                     </table>
@@ -362,7 +362,7 @@
                         </tr>
                                                 <tr>
                           <th>復路運行時間</th>
-                          <td>会場出発 20 時〜20 時 45 分/博多駅着 22 時〜22 時 45 分ごろ</td>
+                          <td>会場出発 20 時〜20 時 45 分<span class="sp"><span class="none">/</span>博多駅着 22 時〜22 時 45 分ごろ</span></td>
                         </tr>
                       </tbody>
                     </table>
@@ -395,7 +395,7 @@
                         </tr>
                                                 <tr>
                           <th>復路運行時間</th>
-                          <td>会場出発 20 時〜20 時 45 分/小倉駅着 22 時〜22 時 45 分ごろ</td>
+                          <td>会場出発 20 時〜20 時 45 分<span class="sp"><span class="none">/</span>小倉駅着 22 時〜22 時 45 分ごろ</span></td>
                         </tr>
                       </tbody>
                     </table>
@@ -428,7 +428,7 @@
                         </tr>
                                                 <tr>
                           <th>復路運行時間</th>
-                          <td>会場出発 20 時〜20 時 45 分/佐賀駅着 22 時〜22 時 45 分ごろ</td>
+                          <td>会場出発 20 時〜20 時 45 分<span class="sp"><span class="none">/</span>佐賀駅着 22 時〜22 時 45 分ごろ</span></td>
                         </tr>
                       </tbody>
                     </table>
@@ -461,7 +461,7 @@
                         </tr>
                                                 <tr>
                           <th>復路運行時間</th>
-                          <td>会場出発 20 時〜20 時 45 分/長崎駅着 23 時〜23 時 45 分ごろ</td>
+                          <td>会場出発 20 時〜20 時 45 分<span class="sp"><span class="none">/</span>長崎駅着 23 時〜23 時 45 分ごろ</span></td>
                         </tr>
                       </tbody>
                     </table>
@@ -494,7 +494,7 @@
                         </tr>
                                                 <tr>
                           <th>復路運行時間</th>
-                          <td>会場出発 20 時〜20 時 45 分/大分駅着 23 時〜23 時 45 分ごろ</td>
+                          <td>会場出発 20 時〜20 時 45 分<span class="sp"><span class="none">/</span>大分駅着 23 時〜23 時 45 分ごろ</span></td>
                         </tr>
                       </tbody>
                     </table>
@@ -527,7 +527,7 @@
                         </tr>
                                                 <tr>
                           <th>復路運行時間</th>
-                          <td>会場出発 20 時〜20 時 45 分/宮崎駅着 23 時〜23 時 45 分ごろ</td>
+                          <td>会場出発 20 時〜20 時 45 分<span class="sp"><span class="none">/</span>宮崎駅着 23 時〜23 時 45 分ごろ</span></td>
                         </tr>
                       </tbody>
                     </table>
@@ -560,7 +560,7 @@
                         </tr>
                                                 <tr>
                           <th>復路運行時間</th>
-                          <td>会場出発 20 時〜20 時 45 分/鹿児島中央駅着 23 時〜23 時 45 分ごろ</td>
+                          <td>会場出発 20 時〜20 時 45 分<span class="sp"><span class="none">/</span>鹿児島中央駅着 23 時〜23 時 45 分ごろ</span></td>
                         </tr>
                       </tbody>
                     </table>
@@ -1637,7 +1637,7 @@ const handleResize = () => {
 }
 
 .area-content.open {
-  max-height: 500px;
+  max-height: 700px;
 }
 
 .notice-box h4 {
@@ -1860,6 +1860,10 @@ const handleResize = () => {
   flex-shrink: 0;
 }
 
+.space{
+    display: none;
+}
+
 /* ===============================================
    レスポンシブデザイン
    =============================================== */
@@ -2070,7 +2074,13 @@ const handleResize = () => {
   .sp{
     display: block;
   }
+  .none{
+    display: none;
+  }
 
+  .space{
+    display: inline;
+  }
   .notes-list {
     padding: 15px 0 0 0;
   }
