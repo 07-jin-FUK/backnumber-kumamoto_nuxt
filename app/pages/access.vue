@@ -161,10 +161,10 @@
 
             <div class="shuttle-route">
               <div class="route-description">
-                <p>公演当日は、下記の臨時乗降場所から熊本えがお健康スタジアムまでの直行シャトルバスを運行いたします。</p>
-                <p>なお、当日券の販売はございませんので、ご利用の際は必ず事前にチケットをご購入ください。</p>
-                <p>※県外からお越しのお客様は、直行シャトルバスのご利用が便利です。</p>
-                <p>シャトルバスの発売詳細につきましては、決まり次第、当サイトにてご案内させていただきます。</p>
+                <p>公演当日は次の3方面より会場直行シャトルバスを運行いたします。</p>
+                <p class="red no-under"><strong>当日券の販売はございませんので、ご利用の際は必ず事前にチケットをご購入ください。</strong></p>
+                <p>なお、各シャトルバスは、混雑緩和のため出発時間帯を区切っての販売となります。</p>
+                <p>時間帯毎に販売数に限りがございますので、予めご了承ください。</p>
               </div>
 
               <div class="route-diagram">
@@ -184,11 +184,29 @@
                     </tr>
                     <tr>
                       <th>料金</th>
-                      <td>①往復券 7,000 円、<span class="sp"><span class="space">　</span>往路券 3,800 円、復路券 3,800 円</span><br>②往復券 5,000 円、<span class="sp"><span class="space">　</span>往路券 2,800 円、復路券 2,800 円</span><br>③往復券 4,000 円、<span class="sp"><span class="space">　</span>往路券 2,300 円、復路券 2,300 円</span></td>
+                      <td>※1期販売（〜4/26（日）まで）<br>
+                        ＜おとな＞<br>
+                        ①往復券 7,000 円、<span class="sp"><span class="space">　</span>片道券 3,800 円</span><br>②往復券 5,000 円、<span class="sp"><span class="space">　</span>片道券 2,800 円</span><br>③往復券 4,000 円、<span class="sp"><span class="space">　</span>片道券 2,300 円</span><br><br>
+                    
+                        ＜こども＞<br>
+                        ①往復券 3,500 円、<span class="sp"><span class="space">　</span>片道券 1,900 円</span><br>②往復券 2,500 円、<span class="sp"><span class="space">　</span>片道券 1,400 円</span><br>③往復券 2,000 円、<span class="sp"><span class="space">　</span>片道券 1,200 円</span><br><br>
+                    ※2期販売（4/27（月）〜）<br>
+                        ＜おとな＞<br>
+                        ①往復券 8,000 円、<span class="sp"><span class="space">　</span>片道券 4,300 円</span><br>②往復券 6,000 円、<span class="sp"><span class="space">　</span>片道券 3,300 円</span><br>③往復券 5,000 円、<span class="sp"><span class="space">　</span>片道券 2,800 円</span><br><br>
+                    
+                        ＜こども＞<br>
+                        ①往復券 4,000 円、<span class="sp"><span class="space">　</span>片道券 2,200 円</span><br>②往復券 3,000 円、<span class="sp"><span class="space">　</span>片道券 1,700 円</span><br>③往復券 2,500 円、<span class="sp"><span class="space">　</span>片道券 1,400 円</span><br><br>
+                      </td>
                     </tr>
                     <tr>
                       <th>運行時間</th>
-                      <td>決まり次第ご案内いたします</td>
+                      <td>往路<br>
+                        ① 9 時〜 15 時 30 分<br>
+                        ② 9 時〜 15 時 30 分<br>
+                        ③ 9 時〜 16 時<br>
+                        <br>
+                        復路<br>
+                    終演後随時運行</td>
                     </tr>
                   </tbody>
                 </table>
@@ -196,7 +214,20 @@
 
               <div class="notice-box">
                 <h4>注意事項</h4>
-                <p>※乗降場所などの詳細情報及びその他注意事項につきましては後日公開の販売ページにてご案内させていただきます。</p>
+                <p class="red no-under">※大人は中学生以上、子どもは小学生となります。</p>
+                <p class="red no-under">　未就学児で座席を利用しない場合は無料ですが、座席を利用する場合は子ども料金が適用されます。</p>
+                <p>※混雑緩和のため、会場行き（往路）の時間を出発時間帯指定とさせていただきます。<br>　（ご購入の際、出発時間帯をお選びいただきご購入ください。）<br>
+※出発時間帯毎に販売数に限りがございます。販売数終了の場合、他の時間帯や別の発地をご選択ください。<br>
+※往復チケット、片道チケット（往路・復路）の販売となりますので、ご希望に合わせてご購入ください。<br>
+※ローソン・ミニストップ店頭のLoppiにて販売いたします。（公演前日23:59まで）<br>
+※おひとり様1回に付き、○○名までの販売となります。<br>
+※乗降場所などの詳細情報及びその他注意事項につきましては販売ページにて必ずご確認ください。<br>
+※販売時期について：販売期間を1期・2期と分けて行います。<br>
+　1期は2期よりもお得になりますので、アクセスについて早期ご購入をご検討ください。<br>
+　・1期：1月○○日（○）～4月26日（日）23:59まで<br>
+　・2期：4月27日（月）0:00～各公演日前日の23:59まで<br>
+
+</p>
               </div>
             </div>
           </section>
@@ -206,10 +237,11 @@
 
             <div class="shuttle-route">
               <div class="route-description">
-                <p>公演当日お車でお越しの場合は、下記の通り、熊本えがお健康スタジアムまでのパーク&バスライドを運行いたします。</p>
-                <p>なお、当日券の販売はございませんので、ご利用の際は必ず事前にチケットをご購入ください。</p>
-                <p>※自家用車でお越しのお客様は、パーク&バスライドのご利用が便利です。※会場には駐車場はございません。</p>
-                <p>パーク&バスライドの発売詳細につきましては、決まり次第、当サイトにてご案内させていただきます。</p>
+                <p>お車でお越しの際は、以下臨時駐車場（有料）をご利用ください。</p>
+                <p>各駐車場から会場直行シャトルバスを運行いたします。</p>
+                <p>当日券の販売はございませんので、ご利用の際は必ず事前にチケットをご購入ください。</p>
+                <p>なお、各駐車場、混雑緩和のため入庫時間帯を区切っての販売となります。</p>
+                <p>時間帯毎に販売数に限りがございますので、予めご了承ください。</p>
               </div>
 
               <div class="route-diagram">
@@ -229,11 +261,19 @@
                     </tr>
                     <tr>
                       <th>料金</th>
-                      <td>9,500 円<span class="sp tab block">※車両 1 台分の駐車料金＋乗車人数分のシャトルバス代込み</span></td>
+                      <td>※1期販売（〜4/26（日）まで）<br>
+                        ＜1台あたり＞　9,500 円<br><br>
+
+                    ※2期販売（4/27（月）〜）<br>
+                        ＜1台あたり＞　10,000 円<br><br></td>
                     </tr>
                     <tr>
                       <th>運行時間</th>
-                      <td>決まり次第ご案内いたします</td>
+                      <td>往路<br>
+                         9 時〜 16 時<br>
+                        <br>
+                        復路<br>
+                    終演後随時運行</td>
                     </tr>
                   </tbody>
                 </table>
@@ -241,10 +281,18 @@
 
               <div class="notice-box">
                 <h4>注意事項</h4>
-                <p>※本パーク&バスライドは、往復チケットのみの販売となっており、片道チケットの販売はございません。</p>
-                <p>※戸島ふれあい広場・グランメッセ熊本・東京エレクトロン九州の3駐車場は、<strong>パーク&バスライドチケットをお持ちの方のみ</strong>ご利用いただけます。</p>
-                <p>※パーク&バスライドチケットは、車両1台につき1枚必要です。</p>
-<p>※1枚のチケットで車両同乗者の皆様駐車場⇄会場のシャトルバスをご利用いただけます。</p>
+                <p>※駐車可能な車種は、軽自動車・小型乗用車・普通自動車に限ります。<br>
+※1台に乗車されるすべての方が往復シャトルバスをご利用頂けます。<br>
+※混雑緩和のため、駐車場入庫時間帯指定とさせていただきます。<br>
+（ご購入の際、駐車場入庫時間帯をお選びいただきご購入ください。）<br>
+※入庫時間帯毎に販売数に限りがございます。販売数終了の場合、他の時間帯や別の発地をご選択ください。<br>
+※ローソン・ミニストップ店頭のLoppiにて販売いたします。（公演前日23:59まで）<br>
+※おひとり様1回に付き、○○台までの販売となります。<br>
+※駐車場の利用可能時間や乗降場所などの詳細情報及びその他注意事項につきましては販売ページにて必ずご確認ください。<br>
+※販売時期について：販売期間を1期・2期と分けて行います。<br>
+　1期は2期よりもお得になりますので、アクセスについて早期ご購入をご検討ください。<br>
+　・1期：1月○○日（○）～4月26日（日）23:59まで
+　・2期：4月27日（月）0:00～各公演日前日の23:59まで</p>
               </div>
             </div>
           </section>
@@ -599,7 +647,7 @@
   <h2>最寄駅から徒歩でのアクセス</h2>
 
 <div class="station-info">
-  <iframe src="https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d13407.569061161825!2d130.7836928322993!3d32.84810407814264!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e2!4m5!1s0x3540f00f592a6c09%3A0xfe697ab655ec99de!2z5YWJ44Gu5qOu6aeF44CB44CSODYxLTgwMDEg54aK5pys55yM54aK5pys5biC5YyX5Yy65q2m6JS144Kx5LiYIOOAkjg2MS04MDAyIDkg5LiB55uu!3m2!1d32.857966399999995!2d130.7867121!4m5!1s0x3540efdfaae84219%3A0xf218b5c8e7f176f6!2z54aK5pys55yM54aK5pys5biC5p2x5Yy65bmz5bGx55S677yS77yX77yX77yWIOeGiuacrOecjOawkee3j-WQiOmBi-WLleWFrOWckumZuOS4iuertuaKgOWgtO-8iOOBiOOBjOOBiuWBpeW6t-OCueOCv-OCuOOCouODoO-8iQ!3m2!1d32.8368628!2d130.8001371!5e0!3m2!1sja!2sjp!4v1767852769751!5m2!1sja!2sjp" width="100%" height="500px" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+<iframe src="https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d41539.61488985665!2d130.77143880464692!3d32.85724673954926!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e2!4m5!1s0x3540f00f592a6c09%3A0xfe697ab655ec99de!2z5YWJ44Gu5qOu6aeF44CB44CSODYxLTgwMDEg54aK5pys55yM54aK5pys5biC5YyX5Yy65q2m6JS144Kx5LiYIOOAkjg2MS04MDAyIDkg5LiB55uu!3m2!1d32.857966399999995!2d130.7867121!4m5!1s0x3540efdfaae84219%3A0xf218b5c8e7f176f6!2z54aK5pys55yM54aK5pys5biC5p2x5Yy65bmz5bGx55S677yS77yX77yX77yWIOeGiuacrOecjOawkee3j-WQiOmBi-WLleWFrOWckumZuOS4iuertuaKgOWgtO-8iOOBiOOBjOOBiuWBpeW6t-OCueOCv-OCuOOCouODoO-8iQ!3m2!1d32.8368628!2d130.8001371!5e0!3m2!1sja!2sjp!4v1767855175732!5m2!1sja!2sjp" width="100%" height="500px" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     <div class="route-description">
       <p>会場への最寄駅は<strong>光の森駅（JR豊肥本線）</strong>となります。光の森駅から会場までは徒歩50分ほどかかります。<br>交通量が多い道路を横断する場所もございますので、十分ご注意の上ご来場ください。</p>
       <p>  光の森駅の時刻表は
@@ -2325,5 +2373,9 @@ const handleResize = () => {
 
 .external-icon {
   flex-shrink: 0;
+}
+
+.no-under{
+    text-decoration: none;
 }
 </style>
