@@ -1199,44 +1199,33 @@ const startPageLoad = () => {
   }, 100);
 };
 
+const handleResize = () => {
+  if (window.innerWidth > 860 && isMenuOpen.value) {
+    const navigation = document.querySelector(".fixed-navigation");
+    
+    // メニューを閉じる
+    closeMenu();
+    
+    // PC表示に戻った時は常にナビゲーションを表示
+    if (navigation) {
+      // 一時的にトランジションを無効化
+      navigation.style.transition = 'none';
+      navigation.classList.add("is-visible");
+      
+      // 次のフレームでトランジションを再度有効化
+      requestAnimationFrame(() => {
+        navigation.style.transition = '';
+      });
+    }
+  }
+};
+
 onUnmounted(() => {
   window.removeEventListener("scroll", updateActiveSection);
   window.removeEventListener("resize", handleResize); // この行を追加
   document.body.style.overflow = '';
 });
 
-// この関数を修正
-const handleResize = () => {
-  if (window.innerWidth > 860 && isMenuOpen.value) {
-    const navigation = document.querySelector(".fixed-navigation");
-    const notesSection = document.getElementById("notes");
-    
-    // メニューを閉じる
-    closeMenu();
-    
-    // closeMenu後、少し待ってから判定（DOMが安定してから）
-    setTimeout(() => {
-      if (notesSection && navigation) {
-        const rect = notesSection.getBoundingClientRect();
-        
-        // 一時的にトランジションを無効化
-        navigation.style.transition = 'none';
-        
-        // notesセクションが画面内に入っている、または通り過ぎている場合
-        if (rect.top < window.innerHeight - 150) {
-          navigation.classList.add("is-visible");
-        } else {
-          navigation.classList.remove("is-visible");
-        }
-        
-        // 次のフレームでトランジションを再度有効化
-        requestAnimationFrame(() => {
-          navigation.style.transition = '';
-        });
-      }
-    }, 50); // 50ms待つ
-  }
-};
 </script>
 
 <style scoped>
