@@ -2338,8 +2338,8 @@ onUnmounted(() => {
   .hamburger-button {
     width: 45px;
     height: 45px;
-    top: 15px;
-    right: 15px;
+    top: 10px;
+    right: 10px;
   }
   .hamburger-button span {
     width: 22px;
