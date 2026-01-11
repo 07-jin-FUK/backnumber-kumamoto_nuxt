@@ -186,16 +186,16 @@
                       <th>料金</th>
                       <td>※1期販売（〜4/26（日）まで）<br>
                         ＜おとな＞<br>
-                        ①往復券 7,000 円、<span class="sp"><span class="space">　</span>片道券 3,800 円</span><br>②往復券 5,000 円、<span class="sp"><span class="space">　</span>片道券 2,800 円</span><br>③往復券 4,000 円、<span class="sp"><span class="space">　</span>片道券 2,300 円</span><br><br>
+                        ①往復券 7,000 円、片道券 3,800 円<br>②往復券 5,000 円、片道券 2,800 円<br>③往復券 4,000 円、片道券 2,300 円<br><br>
                     
                         ＜こども＞<br>
-                        ①往復券 3,500 円、<span class="sp"><span class="space">　</span>片道券 1,900 円</span><br>②往復券 2,500 円、<span class="sp"><span class="space">　</span>片道券 1,400 円</span><br>③往復券 2,000 円、<span class="sp"><span class="space">　</span>片道券 1,200 円</span><br><br>
+                        ①往復券 3,500 円、片道券 1,900 円<br>②往復券 2,500 円、片道券 1,400 円<br>③往復券 2,000 円、片道券 1,200 円<br><br>
                     ※2期販売（4/27（月）〜）<br>
                         ＜おとな＞<br>
-                        ①往復券 8,000 円、<span class="sp"><span class="space">　</span>片道券 4,300 円</span><br>②往復券 6,000 円、<span class="sp"><span class="space">　</span>片道券 3,300 円</span><br>③往復券 5,000 円、<span class="sp"><span class="space">　</span>片道券 2,800 円</span><br><br>
+                        ①往復券 8,000 円、片道券 4,300 円<br>②往復券 6,000 円、片道券 3,300 円<br>③往復券 5,000 円、片道券 2,800 円<br><br>
                     
                         ＜こども＞<br>
-                        ①往復券 4,000 円、<span class="sp"><span class="space">　</span>片道券 2,200 円</span><br>②往復券 3,000 円、<span class="sp"><span class="space">　</span>片道券 1,700 円</span><br>③往復券 2,500 円、<span class="sp"><span class="space">　</span>片道券 1,400 円</span><br><br>
+                        ①往復券 4,000 円、片道券 2,200 円<br>②往復券 3,000 円、片道券 1,700 円<br>③往復券 2,500 円、片道券 1,400 円<br><br>
                       </td>
                     </tr>
                     <tr>
@@ -224,8 +224,8 @@
 ※乗降場所などの詳細情報及びその他注意事項につきましては販売ページにて必ずご確認ください。<br>
 ※販売時期について：販売期間を1期・2期と分けて行います。<br>
 　1期は2期よりもお得になりますので、アクセスについて早期ご購入をご検討ください。<br>
-　・1期：1月○○日（○）～4月26日（日）23:59まで<br>
-　・2期：4月27日（月）0:00～各公演日前日の23:59まで<br>
+・1期：1月○○日（○）～4月26日（日）23:59まで<br>
+・2期：4月27日（月）0:00～各公演日前日の23:59まで<br>
 
 </p>
               </div>
@@ -291,8 +291,8 @@
 ※駐車場の利用可能時間や乗降場所などの詳細情報及びその他注意事項につきましては販売ページにて必ずご確認ください。<br>
 ※販売時期について：販売期間を1期・2期と分けて行います。<br>
 　1期は2期よりもお得になりますので、アクセスについて早期ご購入をご検討ください。<br>
-　・1期：1月○○日（○）～4月26日（日）23:59まで
-　・2期：4月27日（月）0:00～各公演日前日の23:59まで</p>
+・1期：1月○○日（○）～4月26日（日）23:59まで<br>
+・2期：4月27日（月）0:00～各公演日前日の23:59まで</p>
               </div>
             </div>
           </section>
@@ -306,90 +306,16 @@
                 <p>ツアーバスの発売詳細につきましては、決まり次第、当サイトにてご案内させていただきます。</p>
               </div>
 
-              <div class="notice-box">
-                <h4>注意事項</h4>
-                <p>※本ツアーバスは往復便での受付となっており、往路のみの受付は熊本空港発ツアーバスのみになります。</p>
-              </div>
 
               <!-- 各エリアの詳細 -->
               <div class="tour-bus-details">
-                                <div class="area-detail">
-                  <div class="area-header" @click="toggleArea('kumamoto')">
-                    <h3 class="area-title">「JR 熊本駅」</h3>
-                    <span class="toggle-icon" :class="{ active: openAreas.kumamoto }">▼</span>
-                  </div>
-                  <div class="area-content" :class="{ open: openAreas.kumamoto }">
-                    <table class="info-table">
-                      <tbody>
-                        <tr>
-                          <th>発着駅</th>
-                          <td>熊本駅</td>
-                        </tr>
-                        <tr>
-                          <th>所要時間</th>
-                          <td>40 分〜 50 分</td>
-                        </tr>
-                        <tr>
-                          <th>料金(往復)</th>
-                          <td> 円</td>
-                        </tr>
-                        <tr>
-                          <th>往路運行時間</th>
-                          <td>午前便熊本駅出発 時 分/会場着 時ごろ<br>
-昼便熊本駅出発 時 分/会場着 時ごろ<br>
-午後便熊本駅出発 時 分/会場着 時ごろ</td>
-                        </tr>
-                                                <tr>
-                          <th>復路運行時間</th>
-                          <td>会場出発 20 時〜20 時 45 分<span class="sp"><span class="none">/</span>熊本駅着 21 時〜21 時 45 分ごろ</span></td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-                
-                <div class="area-detail">
-                  <div class="area-header" @click="toggleArea('airport')">
-                    <h3 class="area-title">「熊本空港」※往路のみ</h3>
-                    <span class="toggle-icon" :class="{ active: openAreas.airport }">▼</span>
-                  </div>
-                  <div class="area-content" :class="{ open: openAreas.airport }">
-                    <table class="info-table">
-                      <tbody>
-                        <tr>
-                          <th>乗車所</th>
-                          <td>熊本空港<br>※会場までの往路のみの運行となります。熊本空港への戻り便はございません。</td>
-                        </tr>
-                        <tr>
-                          <th>所要時間</th>
-                          <td>20 分〜 30 分</td>
-                        </tr>
-                        <tr>
-                          <th>料金(往路のみ)</th>
-                          <td> 円</td>
-                        </tr>
-                        <tr>
-                          <th>往路運行時間</th>
-                          <td>午前便熊本空港出発 時 分/会場着 時ごろ<br>
-昼便熊本空港出発 時 分/会場着 時ごろ<br>
-午後便熊本空港出発 時 分/会場着 時ごろ</td>
-                        </tr>
-                                                <tr>
-                          <th>復路運行時間</th>
-                          <td>運行無し</td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-                
-                
-                <div class="area-detail">
-                  <div class="area-header" @click="toggleArea('hakata')">
-                    <h3 class="area-title">「JR 博多駅」※途中 SA 休憩あり</h3>
-                    <span class="toggle-icon" :class="{ active: openAreas.hakata }">▼</span>
-                  </div>
-                  <div class="area-content" :class="{ open: openAreas.hakata }">
+                               <div class="area-detail" data-area="hakata1">
+
+<div class="area-header" @click="toggleArea('hakata1')">
+  <h3 class="area-title">「JR 博多駅」①※途中 SA 休憩あり</h3>
+  <span class="toggle-icon" :class="{ active: openAreas.hakata1 }">▼</span>
+</div>
+<div class="area-content" :class="{ open: openAreas.hakata1 }">
                     <table class="info-table">
                       <tbody>
                         <tr>
@@ -402,11 +328,11 @@
                         </tr>
                         <tr>
                           <th>料金(往復)</th>
-                          <td>7,500 円</td>
+                          <td>8,000 円</td>
                         </tr>
                         <tr>
                           <th>往路運行時間</th>
-                          <td>博多駅出発 12 時 30 分/会場着 15 時ごろ</td>
+                          <td>博多駅出発 12 時/会場着 14 時ごろ</td>
                         </tr>
                                                 <tr>
                           <th>復路運行時間</th>
@@ -416,7 +342,42 @@
                     </table>
                   </div>
                 </div>
+                
+                             <div class="area-detail" data-area="hakata2">
 
+<div class="area-header" @click="toggleArea('hakata2')">
+  <h3 class="area-title">「JR 博多駅」②※途中 SA 休憩あり</h3>
+  <span class="toggle-icon" :class="{ active: openAreas.hakata2 }">▼</span>
+</div>
+<div class="area-content" :class="{ open: openAreas.hakata2 }">
+                    <table class="info-table">
+                      <tbody>
+                        <tr>
+                          <th>発着駅</th>
+                          <td>博多駅</td>
+                        </tr>
+                        <tr>
+                          <th>所要時間</th>
+                          <td>90 分〜 120 分</td>
+                        </tr>
+                        <tr>
+                          <th>料金(往復)</th>
+                          <td>9,000 円</td>
+                        </tr>
+                        <tr>
+                          <th>往路運行時間</th>
+                          <td>博多駅出発 13 時/会場着 15 時ごろ</td>
+                        </tr>
+                                                <tr>
+                          <th>復路運行時間</th>
+                          <td>会場出発 20 時〜20 時 45 分<span class="sp"><span class="none">/</span>博多駅着 22 時〜22 時 45 分ごろ</span></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+                
+                
                 <div class="area-detail">
                   <div class="area-header" @click="toggleArea('kokura')">
                     <h3 class="area-title">「JR 小倉駅」※途中 SA 休憩あり</h3>
@@ -431,19 +392,19 @@
                         </tr>
                         <tr>
                           <th>所要時間</th>
-                          <td>100 分〜 130 分</td>
+                          <td>120 分〜 180 分</td>
                         </tr>
                         <tr>
                           <th>料金(往復)</th>
-                          <td>8,500 円</td>
+                          <td>9,000 円</td>
                         </tr>
                         <tr>
                           <th>往路運行時間</th>
-                          <td>小倉駅出発 12 時 30 分/会場着 15 時ごろ</td>
+                          <td>小倉駅出発 12 時/会場着 15 時ごろ</td>
                         </tr>
                                                 <tr>
                           <th>復路運行時間</th>
-                          <td>会場出発 20 時〜20 時 45 分<span class="sp"><span class="none">/</span>小倉駅着 22 時〜22 時 45 分ごろ</span></td>
+                          <td>会場出発 20 時〜20 時 45 分<span class="sp"><span class="none">/</span>小倉駅着 22 時 30 分〜23 時 45 分ごろ</span></td>
                         </tr>
                       </tbody>
                     </table>
@@ -468,11 +429,11 @@
                         </tr>
                         <tr>
                           <th>料金(往復)</th>
-                          <td>7,000 円</td>
+                          <td>7,500 円</td>
                         </tr>
                         <tr>
                           <th>往路運行時間</th>
-                          <td>佐賀駅出発 12 時 30 分/会場着 15 時ごろ</td>
+                          <td>佐賀駅出発 13 時/会場着 15 時ごろ</td>
                         </tr>
                                                 <tr>
                           <th>復路運行時間</th>
@@ -497,24 +458,161 @@
                         </tr>
                         <tr>
                           <th>所要時間</th>
-                          <td>150 分〜 180 分</td>
+                          <td>165 分〜 180 分</td>
                         </tr>
                         <tr>
                           <th>料金(往復)</th>
-                          <td>9,500 円</td>
+                          <td>10,000 円</td>
                         </tr>
                         <tr>
                           <th>往路運行時間</th>
-                          <td>長崎駅出発 12 時 00 分/会場着 15 時ごろ</td>
+                          <td>長崎駅出発 12 時/会場着 15 時ごろ</td>
                         </tr>
                                                 <tr>
                           <th>復路運行時間</th>
-                          <td>会場出発 20 時〜20 時 45 分<span class="sp"><span class="none">/</span>長崎駅着 23 時〜23 時 45 分ごろ</span></td>
+                          <td>会場出発 20 時〜20 時 45 分<span class="sp"><span class="none">/</span>長崎駅着 22 時 45分〜23 時 45 分ごろ</span></td>
                         </tr>
                       </tbody>
                     </table>
                   </div>
                 </div>
+                
+                
+                
+                <div class="area-detail">
+<div class="area-header" @click="toggleArea('kumamoto1')">
+  <h3 class="area-title">「JR 熊本駅」①</h3>
+  <span class="toggle-icon" :class="{ active: openAreas.kumamoto1 }">▼</span>
+</div>
+<div class="area-content" :class="{ open: openAreas.kumamoto1 }">
+                    <table class="info-table">
+                      <tbody>
+                        <tr>
+                          <th>発着駅</th>
+                          <td>熊本駅</td>
+                        </tr>
+                        <tr>
+                          <th>所要時間</th>
+                          <td>40 分〜 60 分</td>
+                        </tr>
+                        <tr>
+                          <th>料金(往復)</th>
+                          <td>7,000 円</td>
+                        </tr>
+                        <tr>
+                          <th>往路運行時間</th>
+                          <td>熊本駅出発 11 時/会場着 12 時ごろ</td>
+                        </tr>
+                                                <tr>
+                          <th>復路運行時間</th>
+                          <td>会場出発 20 時〜20 時 45 分<span class="sp"><span class="none">/</span>熊本駅着 21 時〜21 時 45 分ごろ</span></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+                
+                                
+                <div class="area-detail">
+<div class="area-header" @click="toggleArea('kumamoto2')">
+  <h3 class="area-title">「JR 熊本駅」②</h3>
+  <span class="toggle-icon" :class="{ active: openAreas.kumamoto2 }">▼</span>
+</div>
+<div class="area-content" :class="{ open: openAreas.kumamoto2 }">
+                    <table class="info-table">
+                      <tbody>
+                        <tr>
+                          <th>発着駅</th>
+                          <td>熊本駅</td>
+                        </tr>
+                        <tr>
+                          <th>所要時間</th>
+                          <td>40 分〜 60 分</td>
+                        </tr>
+                        <tr>
+                          <th>料金(往復)</th>
+                          <td>7,000 円</td>
+                        </tr>
+                        <tr>
+                          <th>往路運行時間</th>
+                          <td>熊本駅出発 14 時/会場着 15 時ごろ</td>
+                        </tr>
+                                                <tr>
+                          <th>復路運行時間</th>
+                          <td>会場出発 20 時〜20 時 45 分<span class="sp"><span class="none">/</span>熊本駅着 21 時〜21 時 45 分ごろ</span></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+                
+                <div class="area-detail">
+<div class="area-header" @click="toggleArea('airport1')">
+  <h3 class="area-title">「熊本空港」①※往路のみ</h3>
+  <span class="toggle-icon" :class="{ active: openAreas.airport1 }">▼</span>
+</div>
+<div class="area-content" :class="{ open: openAreas.airport1 }">
+                    <table class="info-table">
+                      <tbody>
+                        <tr>
+                          <th>乗車所</th>
+                          <td>熊本空港<br>※会場までの往路のみの運行となります。熊本空港への戻り便はございません。</td>
+                        </tr>
+                        <tr>
+                          <th>所要時間</th>
+                          <td>20 分〜 40 分</td>
+                        </tr>
+                        <tr>
+                          <th>片道料金(往路のみ)</th>
+                          <td>3,000 円</td>
+                        </tr>
+                        <tr>
+                          <th>往路運行時間</th>
+                          <td>熊本空港出発 11 時/会場着 11 時 40 分ごろ</td>
+                        </tr>
+                                                <tr>
+                          <th>復路運行時間</th>
+                          <td>運行無し</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+                
+                                <div class="area-detail">
+<div class="area-header" @click="toggleArea('airport2')">
+  <h3 class="area-title">「熊本空港」②※往路のみ</h3>
+  <span class="toggle-icon" :class="{ active: openAreas.airport2 }">▼</span>
+</div>
+<div class="area-content" :class="{ open: openAreas.airport2 }">
+                    <table class="info-table">
+                      <tbody>
+                        <tr>
+                          <th>乗車所</th>
+                          <td>熊本空港<br>※会場までの往路のみの運行となります。熊本空港への戻り便はございません。</td>
+                        </tr>
+                        <tr>
+                          <th>所要時間</th>
+                          <td>20 分〜 40 分</td>
+                        </tr>
+                        <tr>
+                          <th>片道料金(往路のみ)</th>
+                          <td>3,000 円</td>
+                        </tr>
+                        <tr>
+                          <th>往路運行時間</th>
+                          <td>熊本空港出発 14 時 45 分/会場着 15 時 25 分ごろ</td>
+                        </tr>
+                                                <tr>
+                          <th>復路運行時間</th>
+                          <td>運行無し</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+                
+
 
                 <div class="area-detail">
                   <div class="area-header" @click="toggleArea('oita')">
@@ -530,19 +628,19 @@
                         </tr>
                         <tr>
                           <th>所要時間</th>
-                          <td>150 分〜 180 分</td>
+                          <td>165 分〜 180 分</td>
                         </tr>
                         <tr>
                           <th>料金(往復)</th>
-                          <td>8,000 円</td>
+                          <td>9,000 円</td>
                         </tr>
                         <tr>
                           <th>往路運行時間</th>
-                          <td>大分駅出発 12 時 00 分/会場着 15 時ごろ</td>
+                          <td>大分駅出発 12 時/会場着 15 時ごろ</td>
                         </tr>
                                                 <tr>
                           <th>復路運行時間</th>
-                          <td>会場出発 20 時〜20 時 45 分<span class="sp"><span class="none">/</span>大分駅着 23 時〜23 時 45 分ごろ</span></td>
+                          <td>会場出発 20 時〜20 時 45 分<span class="sp"><span class="none">/</span>大分駅着 22 時 30 分〜23 時 45 分ごろ</span></td>
                         </tr>
                       </tbody>
                     </table>
@@ -563,19 +661,19 @@
                         </tr>
                         <tr>
                           <th>所要時間</th>
-                          <td>150 分〜 180 分</td>
+                          <td>165 分〜 180 分</td>
                         </tr>
                         <tr>
                           <th>料金(往復)</th>
-                          <td>10,000 円</td>
+                          <td>12,000 円</td>
                         </tr>
                         <tr>
                           <th>往路運行時間</th>
-                          <td>宮崎駅出発 12 時 00 分/会場着 15 時ごろ</td>
+                          <td>宮崎駅出発 12 時/会場着 15 時ごろ</td>
                         </tr>
                                                 <tr>
                           <th>復路運行時間</th>
-                          <td>会場出発 20 時〜20 時 45 分<span class="sp"><span class="none">/</span>宮崎駅着 23 時〜23 時 45 分ごろ</span></td>
+                          <td>会場出発 20 時〜20 時 45 分<span class="sp"><span class="none">/</span>宮崎駅着 22 時 30 分〜23 時 45 分ごろ</span></td>
                         </tr>
                       </tbody>
                     </table>
@@ -600,15 +698,15 @@
                         </tr>
                         <tr>
                           <th>料金(往復)</th>
-                          <td>9,000 円</td>
+                          <td>9,500 円</td>
                         </tr>
                         <tr>
                           <th>往路運行時間</th>
-                          <td>鹿児島中央駅出発 12 時 00 分/会場着 15 時ごろ</td>
+                          <td>鹿児島中央駅出発 12 時/会場着 15 時ごろ</td>
                         </tr>
                                                 <tr>
                           <th>復路運行時間</th>
-                          <td>会場出発 20 時〜20 時 45 分<span class="sp"><span class="none">/</span>鹿児島中央駅着 23 時〜23 時 45 分ごろ</span></td>
+                          <td>会場出発 20 時〜20 時 45 分<span class="sp"><span class="none">/</span>鹿児島中央駅着 22 時 30 分〜23 時 45 分ごろ</span></td>
                         </tr>
                       </tbody>
                     </table>
@@ -619,8 +717,18 @@
               </div>
                   <div class="notice-box top-margin">
       <h4>注意事項</h4>
-      <p>※上記旅行代金はひとりあたりの往復バス金額です。おとな・こども同額となります。</p>
-      <p class="red">※熊本空港のみ往路片道代金となります。</p>
+      <p>※往復のみでの販売となります。（片道販売はございません。片道不要の場合は権利放棄となります。）<br>
+　但し、熊本空港は往路のみの販売となります。<br>
+※ツアーバスの料金は、おとな・こども同額です。（未就学児は座席を利用しない場合のみ無料です）<br>
+※最少催行人員に満たない場合、旅行の実施を中止することがございます。<br>
+　その場合は、出発日の14日前までにご連絡いたします。<br>
+※座席は当日受付順でのご案内となり、混雑時には別グループの方との隣同士のお席や、離れたお席のご案内となる場合がございます。あらかじめご了承ください。<br>
+※完全予約制となります。当日の販売はございません。<br>
+※受付状況によっては、受付締切前でも満席や運行中止でご予約を承れない場合があります。<br>
+※当日は周辺道路の交通渋滞が予想されます。<br>
+　バスの運行スケジュールは余裕を持って設定をしておりますが、当日の交通事情、天候等により延着の可能性があります。その際の他交通機関への接続等の保証はございません。<br>
+　また、開演時間・最終電車に間に合わない場合でも、ご旅行代金の返金および損害に対する補償はいたしかねますので、あらかじめご了承のうえお申込みください。<br>
+※乗降場所、運行時間などの詳細情報及びその他注意事項につきましては後日公開の販売ページにてご案内させていただきます。</p>
     </div>
             </div>
           </section>
@@ -771,15 +879,18 @@ const isLoading = ref(true); // 追加
 
 
 const openAreas = ref({
-  hakata: false,
+  hakata1: false,  // hakata → hakata1
+  hakata2: false,  // 追加
   kokura: false,
-  kumamoto: false,
+  kumamoto1: false,  // kumamoto → kumamoto1
+  kumamoto2: false,  // 追加
   saga: false,
   nagasaki: false,
+  airport1: false,  // airport → airport1
+  airport2: false,  // 追加
   oita: false,
   miyazaki: false,
   kagoshima: false,
-  airport: false,
 });
 
 const openFaqs = ref({
