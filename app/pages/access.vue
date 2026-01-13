@@ -809,7 +809,8 @@
                     </div>
                   </div>
                   <div class="faq-answer" :class="{ open: openFaqs.bicycle }">
-                    <p class="answer">A. 上記に関する回答を記入いたします。</p>
+                    <p class="answer">A. 駐輪場はございます。詳細については決まり次第当ホームページに記載いたします。
+なお、指定の場所以外の駐輪はおやめください。</p>
                   </div>
                 </div>
 
@@ -824,7 +825,7 @@
                     </div>
                   </div>
                   <div class="faq-answer" :class="{ open: openFaqs.pregnancy }">
-                    <p class="answer">A. 上記に関する回答を記入いたします。</p>
+                    <p class="answer">A. 可能です。公演のチケットを確保後に、キョードー西日本までお問い合わせください。</p>
                   </div>
                 </div>
 
@@ -839,7 +840,8 @@
                     </div>
                   </div>
                   <div class="faq-answer" :class="{ open: openFaqs.pickup }">
-                    <p class="answer">A. 上記に関する回答を記入いたします。</p>
+                    <p class="answer">A. 送迎により周辺道路の渋滞が生じ、シャトルバス・ツアーバスの発着に大きな影響を与えますので、送迎でのご来場はおやめください。
+なお、公演当日、えがお健康スタジアム周辺は交通規制を行いますので一般車両の乗り入れは行えません。</p>
                   </div>
                 </div>
               </div>
