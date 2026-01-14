@@ -229,6 +229,11 @@
 
 </p>
               </div>
+                            <div class="contact-box">
+                <h4>お問い合わせ</h4>
+                <p>株式会社JTBビジネストランスフォーム<span>(平日10:00〜17:00)<br></span>
+                MAIL：<a href="mailto:●●●@jbx.jtb.jp">●●●@jbx.jtb.jp</a>　<span>TEL：092-●●●-●●●●</span></p>
+              </div>
             </div>
           </section>
 
@@ -293,6 +298,12 @@
 　1期は2期よりもお得になりますので、アクセスについて早期ご購入をご検討ください。<br>
 ・1期：1月○○日（○）～4月26日（日）23:59まで<br>
 ・2期：4月27日（月）0:00～各公演日前日の23:59まで</p>
+              </div>
+              
+                            <div class="contact-box">
+                <h4>お問い合わせ</h4>
+                <p>株式会社JTBビジネストランスフォーム<span>(平日10:00〜17:00)<br></span>
+                MAIL：<a href="mailto:●●●@jbx.jtb.jp">●●●@jbx.jtb.jp</a>　<span>TEL：092-●●●-●●●●</span></p>
               </div>
             </div>
           </section>
@@ -730,6 +741,11 @@
 　また、開演時間・最終電車に間に合わない場合でも、ご旅行代金の返金および損害に対する補償はいたしかねますので、あらかじめご了承のうえお申込みください。<br>
 ※乗降場所、運行時間などの詳細情報及びその他注意事項につきましては後日公開の販売ページにてご案内させていただきます。</p>
     </div>
+                            <div class="contact-box">
+                <h4>お問い合わせ</h4>
+                <p>株式会社JTBビジネストランスフォーム<span>(平日10:00〜17:00)<br></span>
+                MAIL：<a href="mailto:●●●@jbx.jtb.jp">●●●@jbx.jtb.jp</a>　<span>TEL：092-●●●-●●●●</span></p>
+              </div>
             </div>
           </section>
 
@@ -2014,6 +2030,45 @@ onUnmounted(() => {
 
 .space{
     display: none;
+}
+
+.contact-box {
+  margin-top: 30px;
+
+}
+
+.contact-box h4 {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.contact-box p {
+  margin: 0;
+  line-height: 1.6;
+}
+
+.contact-box a {
+  text-decoration: none;
+}
+
+.contact-box a:hover {
+  opacity: 0.7;
+}
+
+
+@media (max-width: 480px) {
+  
+  .contact-box h4 {
+    font-size: 16px;
+  }
+  
+  .contact-box p {
+    font-size: 14px;
+    span{
+        display: block;
+    }
+  }
 }
 
 /* ===============================================
