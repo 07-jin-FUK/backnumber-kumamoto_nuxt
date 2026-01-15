@@ -232,7 +232,7 @@
                             <div class="contact-box">
                 <h4>お問い合わせ</h4>
                 <p>株式会社JTBビジネストランスフォーム<span>(平日10:00〜17:00)<br></span>
-                MAIL：<a href="mailto:●●●@jbx.jtb.jp">●●●@jbx.jtb.jp</a>　<span>TEL：092-●●●-●●●●</span></p>
+                MAIL：<a href="mailto:event＠jbx.jtb.jp">event＠jbx.jtb.jp</a>　<span>TEL：092-751-9037</span></p>
               </div>
             </div>
           </section>
@@ -303,7 +303,7 @@
                             <div class="contact-box">
                 <h4>お問い合わせ</h4>
                 <p>株式会社JTBビジネストランスフォーム<span>(平日10:00〜17:00)<br></span>
-                MAIL：<a href="mailto:●●●@jbx.jtb.jp">●●●@jbx.jtb.jp</a>　<span>TEL：092-●●●-●●●●</span></p>
+                MAIL：<a href="mailto:event＠jbx.jtb.jp">event＠jbx.jtb.jp</a>　<span>TEL：092-751-9037</span></p>
               </div>
             </div>
           </section>
@@ -744,7 +744,7 @@
                             <div class="contact-box">
                 <h4>お問い合わせ</h4>
                 <p>株式会社JTBビジネストランスフォーム<span>(平日10:00〜17:00)<br></span>
-                MAIL：<a href="mailto:●●●@jbx.jtb.jp">●●●@jbx.jtb.jp</a>　<span>TEL：092-●●●-●●●●</span></p>
+                MAIL：<a href="mailto:event＠jbx.jtb.jp">event＠jbx.jtb.jp</a>　<span>TEL：092-751-9037</span></p>
               </div>
             </div>
           </section>
