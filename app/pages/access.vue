@@ -152,7 +152,7 @@
             </div>
 
             <div class="access-diagram">
-              <img src="/images/main-all-map.png" alt="アクセス案内図" />
+              <img src="/images/access-all.png" alt="アクセス案内図" />
             </div>
           </section>
 
@@ -168,7 +168,7 @@
               </div>
 
               <div class="route-diagram">
-                <img src="/images/bus-map.jpg" alt="シャトルバス路線図" />
+                <img src="/images/bus-map.png" alt="シャトルバス路線図" />
               </div>
 
               <div class="route-details">
