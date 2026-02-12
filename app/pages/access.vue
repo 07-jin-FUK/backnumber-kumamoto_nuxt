@@ -771,7 +771,7 @@
 
 <div class="station-info">
 <iframe src="https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d41539.61488985665!2d130.77143880464692!3d32.85724673954926!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e2!4m5!1s0x3540f00f592a6c09%3A0xfe697ab655ec99de!2z5YWJ44Gu5qOu6aeF44CB44CSODYxLTgwMDEg54aK5pys55yM54aK5pys5biC5YyX5Yy65q2m6JS144Kx5LiYIOOAkjg2MS04MDAyIDkg5LiB55uu!3m2!1d32.857966399999995!2d130.7867121!4m5!1s0x3540efdfaae84219%3A0xf218b5c8e7f176f6!2z54aK5pys55yM54aK5pys5biC5p2x5Yy65bmz5bGx55S677yS77yX77yX77yWIOeGiuacrOecjOawkee3j-WQiOmBi-WLleWFrOWckumZuOS4iuertuaKgOWgtO-8iOOBiOOBjOOBiuWBpeW6t-OCueOCv-OCuOOCouODoO-8iQ!3m2!1d32.8368628!2d130.8001371!5e0!3m2!1sja!2sjp!4v1767855175732!5m2!1sja!2sjp" width="100%" height="500px" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-    <div class="route-description">
+    <div class="route-description margin-adjust">
       <p>会場への最寄駅は<strong>光の森駅（JR豊肥本線）</strong>となります。光の森駅から会場までは徒歩50分ほどかかります。<br>交通量が多い道路を横断する場所もございますので、十分ご注意の上ご来場ください。</p>
       <p>  光の森駅の時刻表は
       <a href="https://www.jrkyushu-timetable.jp/cgi-bin/jr-k_time/tt_dep.cgi?c=29563" target="_blank" rel="noopener noreferrer" class="external-link">
@@ -2436,6 +2436,7 @@ onUnmounted(() => {
   
     .route-description  {
     margin-bottom: 20px;
+    margin-top: 30px;
   }
   
   .route-description p {
@@ -2503,6 +2504,14 @@ onUnmounted(() => {
   .station-info iframe {
     height: 370px; /* 500px → 350px に縮小 */
   }
+  
+  .access-diagram {
+  margin: 30px auto 0;
+}
+
+.margin-adjust{
+    margin-top: 20px !important;
+}
 
 }
 
@@ -2534,4 +2543,6 @@ onUnmounted(() => {
 .no-under{
     text-decoration: none;
 }
+
+
 </style>
