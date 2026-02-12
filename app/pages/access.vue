@@ -2113,6 +2113,22 @@ onUnmounted(() => {
   flex-shrink: 0;
 }
 
+.ticket-button2 .arrow {
+  position: absolute;
+  top:21px;
+  right:30px;
+  width: 8px;
+  height: 14px;
+  flex-shrink: 0;
+}
+.ticket-button3 .arrow {
+  position: absolute;
+  top:21px;
+  right:30px;
+  width: 8px;
+  height: 14px;
+  flex-shrink: 0;
+}
 
 
 .space{
@@ -2475,10 +2491,20 @@ onUnmounted(() => {
 
   .official-button {
     font-size: 14px;
-    padding: 15px 20px;
+    padding: 15px 43px 15px 20px;
     white-space: nowrap;
     line-height: 1;
+    position: relative;
   }
+  
+  .official-button .arrow {
+    position: absolute;
+    right:20px;
+    top:16px;
+  width: 8px;
+  height: 13px;
+  flex-shrink: 0;
+}
   
   
   .ticket-button {
