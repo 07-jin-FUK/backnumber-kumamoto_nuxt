@@ -225,9 +225,16 @@
 ※販売時期について：販売期間を1期・2期と分けて行います。</p>
 <p class="red no-under">　1期は2期よりもお得になりますので、アクセスについて早期ご購入をご検討ください。</p>
 <p>・1期：2月25日（水）19:00～4月26日（日）23:59まで<br>
-・2期：4月27日（月）00:00～各公演日前日の23:59まで<br>
-
+・2期：4月27日（月）00:00～各公演日前日の23:59まで
 </p>
+          <div class="ticket-link">
+            <a href="https://l-tike.com/concert/mevent/?mid=774334" target="_blank" rel="noopener noreferrer" class="ticket-button">
+              シャトルバスのチケット購入はこちら
+              <svg class="arrow" width="8" height="14" viewBox="0 0 8 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1 1L7 7L1 13" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </a>
+          </div>
               </div>
                             <div class="contact-box">
                 <h4>お問い合わせ</h4>
@@ -299,6 +306,14 @@
 <p class="red no-under">　1期は2期よりもお得になりますので、アクセスについて早期ご購入をご検討ください。</p><p>
 ・1期：2月21日（土）12:00～4月26日（日）23:59まで<br>
 ・2期：4月27日（月）00:00～各公演日前日の23:59まで</p>
+          <div class="ticket-link">
+            <a href="https://l-tike.com/concert/mevent/?mid=774338" target="_blank" rel="noopener noreferrer" class="ticket-button2">
+              パーク&バスライドのチケット購入はこちら
+              <svg class="arrow" width="8" height="14" viewBox="0 0 8 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1 1L7 7L1 13" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </a>
+          </div>
               </div>
               
                             <div class="contact-box">
@@ -739,6 +754,14 @@
 　バスの運行スケジュールは余裕を持って設定をしておりますが、当日の交通事情、天候等により延着の可能性があります。その際の他交通機関への接続等の保証はございません。<br>
 　また、開演時間・最終電車に間に合わない場合でも、ご旅行代金の返金および損害に対する補償はいたしかねますので、あらかじめご了承のうえお申込みください。<br>
 ※乗降場所、運行時間などの詳細情報及びその他注意事項につきましては後日公開の販売ページにてご案内させていただきます。</p>
+          <div class="ticket-link">
+            <a href="https://n-tabeat.jtb.co.jp/tabeat/List.aspx?TourNo=b29f271e3e4047988a2cb82a" target="_blank" rel="noopener noreferrer" class="ticket-button3">
+                アクセスツアーバスチケット購入はこちら
+              <svg class="arrow" width="8" height="14" viewBox="0 0 8 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1 1L7 7L1 13" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </a>
+          </div>
     </div>
                             <div class="contact-box">
                 <h4>お問い合わせ</h4>
@@ -794,14 +817,14 @@
 </section>
 
 <section id="wheelchair" class="content-section">
-  <h2>車椅子でのご来場について</h2>
+  <h2>車いすでのご来場について</h2>
 
   <div class="wheelchair-info">
-    <p class="intro-text">車椅子でご来場の方へのご案内です。</p>
+    <p class="intro-text">車いすでご来場の方へのご案内です。</p>
 
     <ul class="wheelchair-list">
-      <li>車椅子専用の駐車場(有料)をご用意致します。</li>
-      <li>一般駐車券の購入は不要です。車椅子専用駐車場券(有料)の発売詳細に関しては、決まり次第、当サイトにてご案内いたします。</li>
+      <li>車いす専用の駐車場(有料)をご用意致します。</li>
+      <li>一般駐車券の購入は不要です。車いす専用駐車場券(有料)の発売詳細に関しては、決まり次第、当サイトにてご案内いたします。</li>
     </ul>
   </div>
 </section>
@@ -2006,7 +2029,7 @@ onUnmounted(() => {
 .official-button {
   display: inline-flex;
   align-items: center;
-  gap: 12px;
+  gap: 15px;
   padding: 15px 30px;
   background: #000;
   color: #fff;
@@ -2026,6 +2049,71 @@ onUnmounted(() => {
   height: 14px;
   flex-shrink: 0;
 }
+
+.ticket-link {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.ticket-button {
+  display: inline-flex;
+  align-items: center;
+  padding: 15px 52px 15px 30px;
+  background: #000;
+  color: #fff;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 50px;
+  transition: opacity 0.3s;
+  margin-top:25px;
+  position: relative;
+}
+
+.ticket-button2 {
+  display: inline-flex;
+  align-items: center;
+  padding: 15px 52px 15px 30px;
+  background: #000;
+  color: #fff;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 50px;
+  transition: opacity 0.3s;
+  margin-top:25px;
+  position: relative;
+}
+
+.ticket-button3 {
+  display: inline-flex;
+  align-items: center;
+  padding: 15px 52px 15px 30px;
+  background: #000;
+  color: #fff;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 50px;
+  transition: opacity 0.3s;
+  margin-top:25px;
+  position: relative;
+}
+
+.ticket-button:hover {
+  opacity: 0.8;
+}
+
+.ticket-button .arrow {
+  position: absolute;
+  top:21px;
+  right:30px;
+  width: 8px;
+  height: 14px;
+  flex-shrink: 0;
+}
+
+
 
 .space{
     display: none;
@@ -2387,8 +2475,91 @@ onUnmounted(() => {
 
   .official-button {
     font-size: 14px;
-    padding: 12px 24px;
+    padding: 15px 20px;
+    white-space: nowrap;
+    line-height: 1;
   }
+  
+  
+  .ticket-button {
+  display: inline-flex;
+  align-items: center;
+  padding: 15px 20px;
+  background: #000;
+  color: #fff;
+  font-size: 14px;
+  line-height: 1;
+  border-radius: 50px;
+  transition: opacity 0.3s;
+  margin-top:26px;
+  white-space: nowrap;
+  position: relative;
+  width: 100%;
+}
+
+  .ticket-button2 {
+  display: inline-flex;
+  align-items: center;
+  padding: 16px 20px;
+  background: #000;
+  color: #fff;
+  font-size: 12px;
+  line-height: 1;
+  border-radius: 50px;
+  transition: opacity 0.3s;
+  margin-top:26px;
+  white-space: nowrap;
+  position: relative;
+  width: 100%;
+}
+
+  .ticket-button3 {
+  display: inline-flex;
+  align-items: center;
+  padding: 15.5px 20px;
+  background: #000;
+  color: #fff;
+  font-size: 13px;
+  line-height: 1;
+  border-radius: 50px;
+  transition: opacity 0.3s;
+  margin-top:26px;
+  white-space: nowrap;
+  position: relative;
+  width: 100%;
+}
+
+
+
+.ticket-button .arrow {
+    position: absolute;
+    right:20px;
+    top:16px;
+  width: 8px;
+  height: 13px;
+  flex-shrink: 0;
+}
+
+
+.ticket-button2 .arrow {
+    position: absolute;
+    right:20px;
+    top:16px;
+  width: 8px;
+  height: 13px;
+  flex-shrink: 0;
+}
+
+
+.ticket-button3 .arrow {
+    position: absolute;
+    right:20px;
+    top:17px;
+  width: 8px;
+  height: 13px;
+  flex-shrink: 0;
+}
+
 
   /* ハンバーガーボタン */
   .hamburger-button {
