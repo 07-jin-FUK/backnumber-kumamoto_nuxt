@@ -2580,7 +2580,7 @@ onUnmounted(() => {
 .ticket-button3 .arrow {
     position: absolute;
     right:20px;
-    top:17px;
+    top:16px;
   width: 8px;
   height: 13px;
   flex-shrink: 0;
