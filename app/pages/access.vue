@@ -753,7 +753,7 @@
 
             <div class="parking-info">
               <div class="parking-map">
-                <img src="/images/park-map.jpg" alt="駐車場マップ" />
+                <img src="/images/park-map.png" alt="駐車場マップ" />
               </div>
               <div class="route-description">
                 <p>ツアーバス、パーク&バスライド、シャトルバス、タクシーご利用でご来場のお客様の乗降所は上記になります。</p>
