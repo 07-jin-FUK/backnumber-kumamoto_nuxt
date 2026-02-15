@@ -175,7 +175,7 @@
                 <table class="info-table">
                   <tbody>
                     <tr>
-                      <th>発車バス停</th>
+                      <th>乗降場所</th>
                       <td>①熊本桜町バスターミナル　<span class="sp tab block">②熊本県庁　</span><span class="sp tab">③菊陽杉並木公園さんさん</span></td>
                     </tr>
                     <tr>
@@ -203,7 +203,7 @@
                       <td>往路<br>
                         ① 9 時〜 15 時 30 分(予定)<br>
                         ② 9 時〜 15 時 30 分(予定)<br>
-                        ③ 9 時〜 16 時(予定)<br>
+                        ③ 9 時〜 15 時 30 分(予定)<br>
                         <br>
                         復路<br>
                     終演後随時運行</td>
@@ -217,14 +217,14 @@
                 <p class="red no-under">※大人は中学生以上、子どもは小学生となります。</p>
                 <p class="red no-under">　未就学児で座席を利用しない場合は無料ですが、座席を利用する場合は子ども料金が適用されます。</p>
                 <p>※混雑緩和のため、会場行き（往路）の時間を出発時間帯指定とさせていただきます。</p><p class="red no-under">　（ご購入の際、出発時間帯をお選びいただきご購入ください。）</p><p>
-※出発時間帯毎に販売数に限りがございます。販売数終了の場合、他の時間帯や別の発地をご選択ください。<br>
+※出発時間帯毎に販売数に限りがございます。<br>
 ※往復チケット、片道チケット（往路・復路）の販売となりますので、ご希望に合わせてご購入ください。<br>
 ※ローソン・ミニストップ店頭のLoppiにて販売いたします。（公演前日23:59まで）<br>
 ※おひとり様1回に付き、4名までの販売となります。<br>
 ※乗降場所などの詳細情報及びその他注意事項につきましては販売ページにて必ずご確認ください。<br>
 ※販売時期について：販売期間を1期・2期と分けて行います。</p>
 <p class="red no-under">　1期は2期よりもお得になりますので、アクセスについて早期ご購入をご検討ください。</p>
-<p>・1期：2月25日（水）19:00～4月26日（日）23:59まで<br>
+<p>・1期：2月21日（土）12:00～4月26日（日）23:59まで<br>
 ・2期：4月27日（月）00:00～各公演日前日の23:59まで
 </p>
           <div class="ticket-link">
@@ -264,7 +264,7 @@
                 <table class="info-table">
                   <tbody>
                     <tr>
-                      <th>発車駐車場</th>
+                      <th>パーク＆バスライド駐車場</th>
                       <td>①戸島ふれあい広場　<span class="sp tab block">②グランメッセ熊本　</span><span class="sp tab">③東京エレクトロン九州</span></td>
                     </tr>
                     <tr>
@@ -283,7 +283,7 @@
                     <tr>
                       <th>運行時間</th>
                       <td>往路<br>
-                         9 時〜 16 時<br>
+                         9 時〜 15 時 30 分(予定)<br>
                         <br>
                         復路<br>
                     終演後随時運行</td>
@@ -298,7 +298,7 @@
 ※1台に乗車されるすべての方が往復シャトルバスをご利用頂けます。<br>
 ※混雑緩和のため、駐車場入庫時間帯指定とさせていただきます。<br>
 （ご購入の際、駐車場入庫時間帯をお選びいただきご購入ください。）<br>
-※入庫時間帯毎に販売数に限りがございます。販売数終了の場合、他の時間帯や別の発地をご選択ください。<br>
+※入庫時間帯毎に販売数に限りがございます。<br>
 ※ローソン・ミニストップ店頭のLoppiにて販売いたします。（公演前日23:59まで）<br>
 ※おひとり様1回に付き、1台までの販売となります。<br>
 ※駐車場の利用可能時間や乗降場所などの詳細情報及びその他注意事項につきましては販売ページにて必ずご確認ください。<br>
@@ -339,7 +339,7 @@
                                <div class="area-detail" data-area="hakata1">
 
 <div class="area-header" @click="toggleArea('hakata1')">
-  <h3 class="area-title">「JR 博多駅」①※途中 SA 休憩あり</h3>
+  <h3 class="area-title">「JR 博多駅」①</h3>
   <span class="toggle-icon" :class="{ active: openAreas.hakata1 }">▼</span>
 </div>
 <div class="area-content" :class="{ open: openAreas.hakata1 }">
@@ -373,7 +373,7 @@
                              <div class="area-detail" data-area="hakata2">
 
 <div class="area-header" @click="toggleArea('hakata2')">
-  <h3 class="area-title">「JR 博多駅」②※途中 SA 休憩あり</h3>
+  <h3 class="area-title">「JR 博多駅」②</h3>
   <span class="toggle-icon" :class="{ active: openAreas.hakata2 }">▼</span>
 </div>
 <div class="area-content" :class="{ open: openAreas.hakata2 }">
@@ -407,7 +407,7 @@
                 
                 <div class="area-detail">
                   <div class="area-header" @click="toggleArea('kokura')">
-                    <h3 class="area-title">「JR 小倉駅」※途中 SA 休憩あり</h3>
+                    <h3 class="area-title">「JR 小倉駅」</h3>
                     <span class="toggle-icon" :class="{ active: openAreas.kokura }">▼</span>
                   </div>
                   <div class="area-content" :class="{ open: openAreas.kokura }">
@@ -440,7 +440,7 @@
 
                 <div class="area-detail">
                   <div class="area-header" @click="toggleArea('saga')">
-                    <h3 class="area-title">「JR 佐賀駅」※途中 SA 休憩あり</h3>
+                    <h3 class="area-title">「JR 佐賀駅」</h3>
                     <span class="toggle-icon" :class="{ active: openAreas.saga }">▼</span>
                   </div>
                   <div class="area-content" :class="{ open: openAreas.saga }">
@@ -473,7 +473,7 @@
 
                 <div class="area-detail">
                   <div class="area-header" @click="toggleArea('nagasaki')">
-                    <h3 class="area-title">「JR ⻑崎駅」※途中 SA 休憩あり</h3>
+                    <h3 class="area-title">「JR ⻑崎駅」</h3>
                     <span class="toggle-icon" :class="{ active: openAreas.nagasaki }">▼</span>
                   </div>
                   <div class="area-content" :class="{ open: openAreas.nagasaki }">
@@ -640,7 +640,7 @@
 
                 <div class="area-detail">
                   <div class="area-header" @click="toggleArea('oita')">
-                    <h3 class="area-title">「JR 大分駅」※途中 SA 休憩あり</h3>
+                    <h3 class="area-title">「JR 大分駅」</h3>
                     <span class="toggle-icon" :class="{ active: openAreas.oita }">▼</span>
                   </div>
                   <div class="area-content" :class="{ open: openAreas.oita }">
@@ -673,7 +673,7 @@
 
                 <div class="area-detail">
                   <div class="area-header" @click="toggleArea('miyazaki')">
-                    <h3 class="area-title">「JR 宮崎駅」※途中 SA 休憩あり</h3>
+                    <h3 class="area-title">「JR 宮崎駅」</h3>
                     <span class="toggle-icon" :class="{ active: openAreas.miyazaki }">▼</span>
                   </div>
                   <div class="area-content" :class="{ open: openAreas.miyazaki }">
@@ -706,7 +706,7 @@
 
                 <div class="area-detail">
                   <div class="area-header" @click="toggleArea('kagoshima')">
-                    <h3 class="area-title">「JR 鹿児島中央駅」<span>※途中 SA 休憩あり</span></h3>
+                    <h3 class="area-title">「JR 鹿児島中央駅」</h3>
                     <span class="toggle-icon" :class="{ active: openAreas.kagoshima }">▼</span>
                   </div>
                   <div class="area-content" :class="{ open: openAreas.kagoshima }">
@@ -1771,7 +1771,7 @@ onUnmounted(() => {
 }
 
 .info-table th {
-  width: 200px;
+  width: 215px;
   font-weight: bold;
 }
 
