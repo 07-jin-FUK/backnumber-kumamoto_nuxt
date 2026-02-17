@@ -2,9 +2,13 @@ export default defineNuxtConfig({
   css: ['~/assets/styles/reset.scss'],
   compatibilityDate: '2024-11-01',
   devtools: { enabled: true },
+  ssr: false,
   
   app: {
     head: {
+      link: [
+        { rel: 'icon', href: 'data:,' }
+      ],
       script: [
         {
           innerHTML: `
