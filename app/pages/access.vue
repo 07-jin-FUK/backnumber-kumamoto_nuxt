@@ -77,7 +77,7 @@
               <a href="#parking" @click.prevent="handleNavClick('parking')">乗降所案内</a>
             </li>
             <li :class="{ active: activeSection === 'station' }">
-              <a href="#station" @click.prevent="handleNavClick('station')">最寄駅アクセス</a>
+              <a href="#station" @click.prevent="handleNavClick('station')">最寄駅からの徒歩アクセス</a>
             </li>
             <li :class="{ active: activeSection === 'wheelchair' }">
               <a href="#wheelchair" @click.prevent="handleNavClick('wheelchair')">車いすでのご来場</a>
@@ -1013,7 +1013,7 @@ const scrollTo = async (id) => {
 
   const element = document.getElementById(id);
   if (element) {
-    const offset = 0;
+const offset = window.innerWidth <= 480 ? 20 : 0;
     const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
     const offsetPosition = elementPosition - offset;
 
