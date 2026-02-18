@@ -77,7 +77,7 @@
               <a href="#parking" @click.prevent="handleNavClick('parking')">乗降所案内</a>
             </li>
             <li :class="{ active: activeSection === 'station' }">
-              <a href="#station" @click.prevent="handleNavClick('station')">最寄駅からの徒歩アクセス</a>
+              <a href="#station" @click.prevent="handleNavClick('station')">最寄駅から徒歩でのアクセス</a>
             </li>
             <li :class="{ active: activeSection === 'wheelchair' }">
               <a href="#wheelchair" @click.prevent="handleNavClick('wheelchair')">車いすでのご来場</a>
