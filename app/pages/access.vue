@@ -2748,7 +2748,7 @@ onUnmounted(() => {
 .pc-text { display: inline; }
 .sp-text { display: none; }
 
-@media (max-width: 480px) {
+@media (max-width: 860px) {
   .pc-text { display: none; }
   .sp-text { display: inline; }
 }
