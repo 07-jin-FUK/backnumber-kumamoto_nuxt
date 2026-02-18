@@ -6,6 +6,7 @@ export default defineNuxtConfig({
   
   app: {
     head: {
+          title: '熊本公演 会場アクセス | back number',
       link: [
         { rel: 'icon', href: 'data:,' }
       ],
