@@ -76,10 +76,12 @@
             <li :class="{ active: activeSection === 'parking' }">
               <a href="#parking" @click.prevent="handleNavClick('parking')">乗降所案内</a>
             </li>
+            <li :class="{ active: activeSection === 'station' }">
 <a href="#station" @click.prevent="handleNavClick('station')">
   <span class="pc-text">最寄駅アクセス</span>
   <span class="sp-text">最寄駅から徒歩でのアクセス</span>
 </a>
+            </li>
             <li :class="{ active: activeSection === 'wheelchair' }">
               <a href="#wheelchair" @click.prevent="handleNavClick('wheelchair')">車いすでのご来場</a>
             </li>
@@ -2746,7 +2748,7 @@ onUnmounted(() => {
 .pc-text { display: inline; }
 .sp-text { display: none; }
 
-@media (max-width: 480px) {
+@media (max-width: 860px) {
   .pc-text { display: none; }
   .sp-text { display: inline; }
 }
